@@ -23,15 +23,15 @@ public class Separable{
     	int izq, der, i;
     	//der es el total acumulado de la suma desde el final del array
     	//izq es el total acumulado que suma desde el principio del array
-    	izq = 0;
-    	der = 0;
-    	i = 0;
+    	izq = tabla[0];					//acumula el primer contenido
+    	der = tabla[tabla.length-1];	//inicializo con el último contenido
+    	i = 1;	//tabla[1] sería el segundo
     	
-    	while (izq != der || i != tabla.length){
-    	// Recorrer toda la tabla mientras las sumas no sean iguales
+    	while (izq != der && i != tabla.length){
+    	//recorrer toda la tabla mientras las sumas no sean iguales
     		izq = izq + tabla[i];
     		//no me funciona por tener valores negativos...
-    		der = der + tabla[tabla.length-i];
+    		der = der + tabla[tabla.length-1-i];
     		i++;
     	}
         return i;
