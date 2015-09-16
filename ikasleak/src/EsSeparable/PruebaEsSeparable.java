@@ -14,7 +14,7 @@ public class PruebaEsSeparable {
 	        Stopwatch timer = new Stopwatch();
 	        Separable sepa = new Separable();
 	        sepa.esSeparable1(a);
-	        sepa.esSeparable2(a);
+	        //sepa.esSeparable2(a);
 	        return timer.elapsedTime();
 	    }
 
