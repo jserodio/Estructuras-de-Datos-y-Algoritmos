@@ -23,8 +23,8 @@ public class Separable{
     	int izq, der,i,resul;
     	//der es el total acumulado de la suma desde la posicion en la que estamos hacia la derecha
     	//izq es el total acumulado que suma desde el principio del array hasta la posicion en la que estamos
-    	izq=0;	
-    	der=0;//inicializo con el siguiente contenido
+    	izq=0;	//inicializo izq
+    	der=1;//inicializo der a 1 ya que si lo hago a 0 me da error aritmetico al dividir 0/0
     	i = 0;//tabla[1] sería el segundo
     	resul=0;
     	for (int j = 0; j<tabla.length;j++){
