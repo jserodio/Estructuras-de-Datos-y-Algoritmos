@@ -33,19 +33,19 @@ public class Separable{
     	for (int j: tabla){
     		resul = resul + j; //recorro todo el array y sumo todos sus numeros
     	}
-    	System.out.println("--- I n i c i a - L o o p ---");
+//    	System.out.println("--- I n i c i a - L o o p ---");
     	while ((izq-der)!=0 && i != tabla.length){	
     		izq = izq + tabla[i]; //En la izquierda sumo el valor de la posicion actual a los valores anteriores.
     		der = resul-izq; // En la derecha meto el valor total de la tabla, restandole lo que he obtenido en la posicion i, que he añadido a izq
     		i++;
-    		System.out.println("---");
-    		System.out.println("interacion nº: "+ i+1);
-    		System.out.println("izquierda: "+ izq);
-    		System.out.println("derecha: "+ der);
-    		System.out.println("resultado: "+ resul);
+//    		System.out.println("---");
+//    		System.out.println("interacion nº: "+ i);
+//    		System.out.println("izquierda: "+ izq);
+//    		System.out.println("derecha: "+ der);
+//    		System.out.println("resultado: "+ resul);
     	}
-    	System.out.println("---");
-    	System.out.println("--- F i n - D e l - L o o p ---");
+//    	System.out.println("---");
+//    	System.out.println("--- F i n - D e l - L o o p ---");
         return i;
     } 
 }

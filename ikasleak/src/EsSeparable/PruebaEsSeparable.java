@@ -19,11 +19,11 @@ public class PruebaEsSeparable {
 	    }
 
 	    public static void main(String[] args) {
-	    	double time = timeTrial(10);
-	    	System.out.printf("%7d %5.1f\n", 10, time);
-//	        for (int N = 250; true; N += N) {
-//	            double time = timeTrial(N);
-//	            System.out.printf("%7d %5.1f\n", N, time);
-//	        } 
+//	    	double time = timeTrial(10);
+//	    	System.out.printf("%7d %5.1f\n", 10, time);
+	        for (int N = 250; true; N += N) {
+	            double time = timeTrial(N);
+	            System.out.printf("%7d %5.1f\n", N, time);
+	        } 
 	    } 
 	}
