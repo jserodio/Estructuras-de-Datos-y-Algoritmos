@@ -13,15 +13,17 @@ public class PruebaEsSeparable {
 	        }
 	        Stopwatch timer = new Stopwatch();
 	        Separable sepa = new Separable();
-	        sepa.esSeparable1(a);
-//	        sepa.esSeparable2(a);
+//	        sepa.esSeparable1(a);
+	        sepa.esSeparable2(a);
 	        return timer.elapsedTime();
 	    }
 
-	    public static void main(String[] args) { 
-	        for (int N = 250; true; N += N) {
-	            double time = timeTrial(N);
-	            System.out.printf("%7d %5.1f\n", N, time);
-	        } 
+	    public static void main(String[] args) {
+	    	double time = timeTrial(10);
+	    	System.out.printf("%7d %5.1f\n", 10, time);
+//	        for (int N = 250; true; N += N) {
+//	            double time = timeTrial(N);
+//	            System.out.printf("%7d %5.1f\n", N, time);
+//	        } 
 	    } 
 	}
