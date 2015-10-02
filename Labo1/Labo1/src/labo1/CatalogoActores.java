@@ -28,11 +28,11 @@ public class CatalogoActores {
 
 	public void CargarDatosFichero() {
 		try {
-			Scanner entrada = new Scanner(new FileReader("src/fichero/prueba_corto.txt"));
+			Scanner entrada = new Scanner(new FileReader("src/archivo/actors-movies-2015-2016"));
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
-				String f[] = linea.split("\\s\\\\\\s");
+				String f[] = linea.split("");
 				ListaActores Lact = new ListaActores();
 				String peli = f[0];
 				for (int i = 1; i < f.length; i++) {
