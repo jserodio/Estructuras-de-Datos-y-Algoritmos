@@ -3,9 +3,9 @@ package labo1;
 public class Pelicula {
 
 	private String titulo;
-	private ListaActrices la;
+	private ListaActores la;
 
-	public Pelicula(String pTitulo, ListaActrices pLa) {
+	public Pelicula(String pTitulo, ListaActores pLa) {
 		this.titulo = pTitulo;
 		this.la = pLa;
 	}
@@ -14,7 +14,7 @@ public class Pelicula {
 		return this.titulo;
 
 	}
-	public ListaActrices getLista(){
+	public ListaActores getLista(){
 		return this.la;
 	}
 }
