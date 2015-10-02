@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-	static Actor unaActor = null;
+	static Actor unActor = null;
 	static String pNombre;
 	static int num;
 
@@ -43,13 +43,13 @@ public class Menu {
 			case 1:
 				System.out.println("Introduce un nombre a buscar:");
 				pNombre = br.readLine();
-				unaActor = CatalogoActores.getCatalogoActrices().la
+				unActor = CatalogoActores.getCatalogoActrices().la
 						.buscarActor(pNombre);
-				// System.out.println(unaActor.getNombre()); prueba
-				if (unaActor == null) {
+				// System.out.println(unActor.getNombre()); prueba
+				if (unActor == null) {
 					System.out.println("El actor que buscas no esta.");
 				} else {
-					System.out.println(unaActor.getNombre()
+					System.out.println(unActor.getNombre()
 							+ " esta en la lista.");
 				}
 				break;
@@ -57,14 +57,14 @@ public class Menu {
 			case 2:
 				System.out.println("Introduce Actor a insertar:");
 				pNombre = br.readLine();
-				unaActor = new Actor(pNombre);
+				unActor = new Actor(pNombre);
 				if (CatalogoActores.getCatalogoActrices().getLista()
 						.estaActor(pNombre)) {
 					System.out.println("El actor ya esta introducido.");
 				} else {
 					System.out.println("Se va a insertar el actor " + pNombre);
 					CatalogoActores.getCatalogoActrices().getLista()
-							.insercionActor(unaActor);
+							.insercionActor(unActor);
 				}
 				break;
 
@@ -72,12 +72,12 @@ public class Menu {
 				System.out
 						.println("Introduce un actor para saber su numero de peliculas:");
 				pNombre = br.readLine();
-				unaActor = CatalogoActores.getCatalogoActrices().getLista()
+				unActor = CatalogoActores.getCatalogoActrices().getLista()
 						.buscarActor(pNombre);
-				if (unaActor == null) {
+				if (unActor == null) {
 					System.out.println("El actor que buscas no esta.");
 				} else {
-					int peliculas = unaActor.devolverNumPelis();
+					int peliculas = unActor.devolverNumPelis();
 					System.out.println("El actor que buscas tiene " + peliculas
 							+ " pelicula(s).");
 				}
@@ -87,12 +87,12 @@ public class Menu {
 			case 4:
 				System.out.println("introduce un actor a borrar");
 				pNombre = br.readLine();
-				unaActor = CatalogoActores.getCatalogoActrices().getLista()
+				unActor = CatalogoActores.getCatalogoActrices().getLista()
 						.buscarActor(pNombre);
-				if (unaActor != null) {
+				if (unActor != null) {
 					System.out.println("el actor esta y se va a borrar");
 					CatalogoActores.getCatalogoActrices().getLista()
-							.borrarActor(unaActor);
+							.borrarActor(unActor);
 				} else {
 					System.out.println("el actor " + pNombre + " no esta");
 				}
@@ -104,9 +104,9 @@ public class Menu {
 				Iterator<Actor> it = CatalogoActores.getCatalogoActrices()
 						.getLista().getIterador();
 				while (it.hasNext()) {
-					Actor UnaActor = it.next();
-					String linea = UnaActor.getNombre();
-					Iterator<Pelicula> itr = UnaActor.getListaPelis()
+					Actor UnActor = it.next();
+					String linea = UnActor.getNombre();
+					Iterator<Pelicula> itr = UnActor.getListaPelis()
 							.getIterador();
 					while (itr.hasNext()) {
 						linea = linea + " \\ " + itr.next().getTitulo();
