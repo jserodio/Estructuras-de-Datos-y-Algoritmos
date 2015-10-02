@@ -4,20 +4,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CatalogoActrices {
+public class CatalogoActores {
 	// atributos
 	ListaActores la;
-	private static CatalogoActrices miCatalogoActrices;
+	private static CatalogoActores miCatalogoActrices;
 
 	// constructora
-	private CatalogoActrices() {
+	private CatalogoActores() {
 		this.la = new ListaActores();
 	}
 
 	// getters y setters
-	public static CatalogoActrices getCatalogoActrices() {
+	public static CatalogoActores getCatalogoActrices() {
 		if (miCatalogoActrices == null) {
-			miCatalogoActrices = new CatalogoActrices();
+			miCatalogoActrices = new CatalogoActores();
 		}
 		return miCatalogoActrices;
 	}
@@ -28,7 +28,7 @@ public class CatalogoActrices {
 
 	public void CargarDatosFichero() {
 		try {
-			Scanner entrada = new Scanner(new FileReader("src/archivo/"));
+			Scanner entrada = new Scanner(new FileReader("src/fichero/prueba_corto.txt"));
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
@@ -47,7 +47,7 @@ public class CatalogoActrices {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		CatalogoActrices.getCatalogoActrices().getLista().ordenarActores();
+		CatalogoActores.getCatalogoActrices().getLista().ordenarActores();
 		CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
 	}
 }
