@@ -3,84 +3,84 @@ package labo1;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ListaActrices {
+public class ListaActores {
 
-	private ArrayList<Actriz> la;
-	private Actriz[] listaOrdenada;
+	private ArrayList<Actor> la;
+	private Actor[] listaOrdenada;
 	
-	public ListaActrices() {
-		this.la = new ArrayList<Actriz>();
+	public ListaActores() {
+		this.la = new ArrayList<Actor>();
 	}
 
-	public void insercionActriz(Actriz UnaActriz) {
-		this.la.add(UnaActriz);
+	public void insercionActor(Actor UnaActor) {
+		this.la.add(UnaActor);
 	}
 
-	public void borrarActriz(Actriz unaActriz) {
-		this.la.remove(unaActriz);
+	public void borrarActor(Actor unaActor) {
+		this.la.remove(unaActor);
 	}
 
-	public Iterator<Actriz> getIterador() {
+	public Iterator<Actor> getIterador() {
 		return this.la.iterator();
 	}
 
-	public boolean estaActriz(String pNombre) {
-		Iterator<Actriz> itr = this.getIterador();
+	public boolean estaActor(String pNombre) {
+		Iterator<Actor> itr = this.getIterador();
 		boolean esta = false;
-		Actriz unaActriz = null;
+		Actor unaActor = null;
 		while (!esta && itr.hasNext()) {
-			unaActriz = itr.next();
+			unaActor = itr.next();
 
-			if (unaActriz.getNombre() == pNombre) {
+			if (unaActor.getNombre() == pNombre) {
 				esta = true;
 			}
 		}
 		return esta;
 	}
 
-	public Actriz buscarActriz(String pNombre) {
-		Iterator<Actriz> itr = this.getIterador();
+	public Actor buscarActor(String pNombre) {
+		Iterator<Actor> itr = this.getIterador();
 		boolean enc = false;
-		Actriz unaActriz=null;
+		Actor unaActor=null;
 		while (!enc && itr.hasNext()) {
-			unaActriz = itr.next();
-			if (unaActriz.getNombre().equals(pNombre)) {
+			unaActor = itr.next();
+			if (unaActor.getNombre().equals(pNombre)) {
 				enc = true;
 			}else{
-				unaActriz=null;
+				unaActor=null;
 			}
 		}
-		return unaActriz;
+		return unaActor;
 	}
 
 	public int getTamano() {
 		return this.la.size();
 	}
 
-	public Actriz EstaEnPos(int pPos) {
-		Actriz unaActriz = null;
+	public Actor EstaEnPos(int pPos) {
+		Actor unaActor = null;
 		if (!this.la.isEmpty()) {
 			if (pPos < getTamano() && (pPos >= 0)) {
-				unaActriz = this.la.get(pPos);
+				unaActor = this.la.get(pPos);
 			}
 		}
-		return unaActriz;
+		return unaActor;
 	}
 
 	public void ordenarActores() {
-		listaOrdenada = new Actriz[la.size()];
+		listaOrdenada = new Actor[la.size()];
 		listaOrdenada = this.la.toArray(listaOrdenada);
 		listaOrdenada= ordenar(listaOrdenada,0,listaOrdenada.length-1);
-		this.la = new ArrayList<Actriz>();
+		this.la = new ArrayList<Actor>();
 		for (int i = 0; i < listaOrdenada.length; i++) {
 			System.out.println("ordenada: " + listaOrdenada[i].getNombre());
 			la.add(listaOrdenada[i]);
 		}
 	}
 
-		public Actriz[] ordenar(Actriz[] lista, int inicio, int fin){
+		public Actor[] ordenar(Actor[] lista, int inicio, int fin){
 			int i, j, central;
-			Actriz pivote;
+			Actor pivote;
 			central=(inicio+fin)/2;
 			pivote=lista[central];
 			i=inicio;
@@ -89,7 +89,7 @@ public class ListaActrices {
 				while (lista[i].compareTo(pivote)<=0 && i<j) i++;
 				while (lista[j].compareTo(pivote)>0) j--;
 				if(i<=j){
-					Actriz tem;
+					Actor tem;
 					tem=lista[i];
 					lista[i]=lista[j];
 					lista[j]=tem;
@@ -105,10 +105,10 @@ public class ListaActrices {
 		}	
 		
 	public void imprimirLista(){
-		Iterator<Actriz> itr = this.getIterador();
+		Iterator<Actor> itr = this.getIterador();
 		while (itr.hasNext()){
-			Actriz unaActriz = itr.next();
-			System.out.println(unaActriz.getNombre());
+			Actor unaActor = itr.next();
+			System.out.println(unaActor.getNombre());
 		}
 	}
 }

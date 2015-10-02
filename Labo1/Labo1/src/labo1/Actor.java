@@ -1,11 +1,11 @@
 package labo1;
 
-public class Actriz implements Comparable<Actriz>{
+public class Actor implements Comparable<Actor>{
 
 	private String nombre;
 	 private ListaPelis Lp;
 	
-	public Actriz (String pNombre){
+	public Actor (String pNombre){
 		this.Lp = new ListaPelis();
 		this.nombre=pNombre;
 	}
@@ -27,7 +27,7 @@ public class Actriz implements Comparable<Actriz>{
 	}
 	
 	
-	public int compareTo(Actriz unaActriz) {
-		return this.getNombre().compareTo(unaActriz.nombre);
+	public int compareTo(Actor unaActor) {
+		return this.getNombre().compareTo(unaActor.nombre);
 	}
 }

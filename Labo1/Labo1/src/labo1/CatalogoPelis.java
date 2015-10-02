@@ -25,12 +25,12 @@ public class CatalogoPelis {
 		for (int i=0; i<this.Lpe.getTamano(); i++){
 			unaPelicula = this.Lpe.EstaEnPos(i);
 			for(int j=0; j<unaPelicula.getLista().getTamano() ; j++){
-				Actriz unaActriz=unaPelicula.getLista().EstaEnPos(j);
-				if( CatalogoActrices.getCatalogoActrices().getLista().buscarActriz(unaActriz.getNombre())!=null)
-					CatalogoActrices.getCatalogoActrices().getLista().buscarActriz(unaActriz.getNombre()).getListaPelis().anadirPeli(unaPelicula);
+				Actor unaActor=unaPelicula.getLista().EstaEnPos(j);
+				if( CatalogoActrices.getCatalogoActrices().getLista().buscarActor(unaActor.getNombre())!=null)
+					CatalogoActrices.getCatalogoActrices().getLista().buscarActor(unaActor.getNombre()).getListaPelis().anadirPeli(unaPelicula);
 				else{
-					unaActriz.getListaPelis().anadirPeli(unaPelicula);
-					CatalogoActrices.getCatalogoActrices().getLista().insercionActriz(unaActriz);
+					unaActor.getListaPelis().anadirPeli(unaPelicula);
+					CatalogoActrices.getCatalogoActrices().getLista().insercionActor(unaActor);
 				}
 			}
 		}

@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class CatalogoActrices {
 	// atributos
-	ListaActrices la;
+	ListaActores la;
 	private static CatalogoActrices miCatalogoActrices;
 
 	// constructora
 	private CatalogoActrices() {
-		this.la = new ListaActrices();
+		this.la = new ListaActores();
 	}
 
 	// getters y setters
@@ -22,7 +22,7 @@ public class CatalogoActrices {
 		return miCatalogoActrices;
 	}
 
-	public ListaActrices getLista() {
+	public ListaActores getLista() {
 		return this.la;
 	}
 
@@ -33,13 +33,13 @@ public class CatalogoActrices {
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
 				String f[] = linea.split("\\s\\\\\\s");
-				ListaActrices Lact = new ListaActrices();
+				ListaActores Lact = new ListaActores();
 				String peli = f[0];
 				for (int i = 1; i < f.length; i++) {
-					Actriz act = new Actriz(f[i]);
-					Lact.insercionActriz(act);
-					if (!(this.getLista().estaActriz(act.getNombre())))
-						this.la.insercionActriz(act);
+					Actor act = new Actor(f[i]);
+					Lact.insercionActor(act);
+					if (!(this.getLista().estaActor(act.getNombre())))
+						this.la.insercionActor(act);
 				}
 				CatalogoPelis.getCatalogoPelis().getLista().anadirPeli(new Pelicula(peli, Lact));
 			}
