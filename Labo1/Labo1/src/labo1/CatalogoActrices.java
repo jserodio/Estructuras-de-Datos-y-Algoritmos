@@ -28,7 +28,7 @@ public class CatalogoActrices {
 
 	public void CargarDatosFichero() {
 		try {
-			Scanner entrada = new Scanner(new FileReader("src/fichero/prueba_corto.txt"));
+			Scanner entrada = new Scanner(new FileReader("src/archivo/"));
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
