@@ -26,11 +26,11 @@ public class CatalogoPelis {
 			unaPelicula = this.Lpe.EstaEnPos(i);
 			for(int j=0; j<unaPelicula.getLista().getTamano() ; j++){
 				Actor unaActor=unaPelicula.getLista().EstaEnPos(j);
-				if( CatalogoActores.getCatalogoActrices().getLista().buscarActor(unaActor.getNombre())!=null)
-					CatalogoActores.getCatalogoActrices().getLista().buscarActor(unaActor.getNombre()).getListaPelis().anadirPeli(unaPelicula);
+				if( CatalogoActores.getCatalogoActores().getLista().buscarActor(unaActor.getNombre())!=null)
+					CatalogoActores.getCatalogoActores().getLista().buscarActor(unaActor.getNombre()).getListaPelis().anadirPeli(unaPelicula);
 				else{
 					unaActor.getListaPelis().anadirPeli(unaPelicula);
-					CatalogoActores.getCatalogoActrices().getLista().insercionActor(unaActor);
+					CatalogoActores.getCatalogoActores().getLista().insercionActor(unaActor);
 				}
 			}
 		}

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class CatalogoActores {
 	// atributos
 	ListaActores la;
-	private static CatalogoActores miCatalogoActrices;
+	private static CatalogoActores miCatalogoActores;
 
 	// constructora
 	private CatalogoActores() {
@@ -15,11 +15,11 @@ public class CatalogoActores {
 	}
 
 	// getters y setters
-	public static CatalogoActores getCatalogoActrices() {
-		if (miCatalogoActrices == null) {
-			miCatalogoActrices = new CatalogoActores();
+	public static CatalogoActores getCatalogoActores() {
+		if (miCatalogoActores == null) {
+			miCatalogoActores = new CatalogoActores();
 		}
-		return miCatalogoActrices;
+		return miCatalogoActores;
 	}
 
 	public ListaActores getLista() {
@@ -47,7 +47,7 @@ public class CatalogoActores {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		CatalogoActores.getCatalogoActrices().getLista().ordenarActores();
+		CatalogoActores.getCatalogoActores().getLista().ordenarActores();
 		CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
 	}
 }
