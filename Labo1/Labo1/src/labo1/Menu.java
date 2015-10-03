@@ -18,20 +18,18 @@ public class Menu {
 	static int num;
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("Se van a cargar los datos, espere un momento.");
-		CatalogoActores.getCatalogoActrices().CargarDatosFichero();
-		System.out.println("*****************");
-		System.out.println("MENU DEL PROGRAMA:");
-		System.out.println("*****************");
-		System.out.println("- Opcion 1: busqueda de un actor/Actor");
-		System.out.println("- Opcion 2: insertar nuevo actor Actor");
-		System.out
-				.println("- Opcion 3: devolver numero de peliculas de un actor dado");
-		System.out.println("- Opcion 4: borrar actor/Actor");
-		System.out.println("- Opcion 5: guardar lista en fichero");
-		System.out.println("- Opcion 6: ordenar lista actores/actrices");
-		System.out.println("- Opcion 7: salir del menu. ");
-
+		System.out.println("¡Bienvenido usuario! Cargando datos...");
+		CatalogoActores.getCatalogoActores().CargarDatosFichero();
+		System.out.println("\nIntroduzca la opcion deseada\n");
+		System.out.println("> Opcion 1- Buscar actor/actriz");
+		System.out.println("> Opcion 2- Insertar actor/actriz");
+		System.out.println("> Opcion 3- Borrar un actor/actriz");
+		System.out.println("> Opcion 4- Mostrar peliculas de un actor/actriz");
+		System.out.println("> Opcion 5- Mostrar reparto de una pelicula");
+		System.out.println("> Opcion 6- Obtener una lista de actores ordenada");
+		System.out.println("> Opcion 7- Hacer una donacion a una pelicula");
+		System.out.println("> Opcion 8- Guardar datos de peliculas a un archivo");
+		System.out.println("> Opcion 9- salir del menu. ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String Linea = br.readLine();
 		num = Integer.parseInt(Linea);
@@ -41,13 +39,13 @@ public class Menu {
 			switch (num) {
 
 			case 1:
-				System.out.println("Introduce un nombre a buscar:");
+				System.out.println("Introduzca un nombre a buscar:");
 				pNombre = br.readLine();
-				unActor = CatalogoActores.getCatalogoActrices().la
+				unActor = CatalogoActores.getCatalogoActores().la
 						.buscarActor(pNombre);
 				// System.out.println(unActor.getNombre()); prueba
 				if (unActor == null) {
-					System.out.println("El actor que buscas no esta.");
+					System.out.println("El actor "+pNombre+" no está."); // ME HE QUEDADO AQUIII
 				} else {
 					System.out.println(unActor.getNombre()
 							+ " esta en la lista.");
@@ -58,21 +56,36 @@ public class Menu {
 				System.out.println("Introduce Actor a insertar:");
 				pNombre = br.readLine();
 				unActor = new Actor(pNombre);
-				if (CatalogoActores.getCatalogoActrices().getLista()
+				if (CatalogoActores.getCatalogoActores().getLista()
 						.estaActor(pNombre)) {
 					System.out.println("El actor ya esta introducido.");
 				} else {
 					System.out.println("Se va a insertar el actor " + pNombre);
-					CatalogoActores.getCatalogoActrices().getLista()
+					CatalogoActores.getCatalogoActores().getLista()
 							.insercionActor(unActor);
 				}
 				break;
 
 			case 3:
+				System.out.println("introduce un actor a borrar");
+				pNombre = br.readLine();
+				unActor = CatalogoActores.getCatalogoActores().getLista()
+						.buscarActor(pNombre);
+				if (unActor != null) {
+					System.out.println("el actor esta y se va a borrar");
+					CatalogoActores.getCatalogoActores().getLista()
+							.borrarActor(unActor);
+				} else {
+					System.out.println("el actor " + pNombre + " no esta");
+				}
+				break;
+
+			case 4:
+
 				System.out
 						.println("Introduce un actor para saber su numero de peliculas:");
 				pNombre = br.readLine();
-				unActor = CatalogoActores.getCatalogoActrices().getLista()
+				unActor = CatalogoActores.getCatalogoActores().getLista()
 						.buscarActor(pNombre);
 				if (unActor == null) {
 					System.out.println("El actor que buscas no esta.");
@@ -83,25 +96,11 @@ public class Menu {
 				}
 
 				break;
-
-			case 4:
-				System.out.println("introduce un actor a borrar");
-				pNombre = br.readLine();
-				unActor = CatalogoActores.getCatalogoActrices().getLista()
-						.buscarActor(pNombre);
-				if (unActor != null) {
-					System.out.println("el actor esta y se va a borrar");
-					CatalogoActores.getCatalogoActrices().getLista()
-							.borrarActor(unActor);
-				} else {
-					System.out.println("el actor " + pNombre + " no esta");
-				}
-				break;
-
+				
 			case 5: {
 				PrintWriter writer = new PrintWriter(
 						"src/fichero/copiaLista2.txt");
-				Iterator<Actor> it = CatalogoActores.getCatalogoActrices()
+				Iterator<Actor> it = CatalogoActores.getCatalogoActores()
 						.getLista().getIterador();
 				while (it.hasNext()) {
 					Actor UnActor = it.next();
@@ -120,7 +119,7 @@ public class Menu {
 				break;
 			case 6:
 				System.out.println("Se va a ordenar la lista.");
-				CatalogoActores.getCatalogoActrices().la.ordenarActores();
+				CatalogoActores.getCatalogoActores().la.ordenarActores();
 				break;
 
 			case 7:
@@ -128,18 +127,7 @@ public class Menu {
 				num = 0;
 				System.exit(num);
 			}
-			System.out.println("*****************");
-			System.out.println("MENU DEL PROGRAMA:");
-			System.out.println("*****************");
-			System.out.println("- Opcion 1: busqueda de un actor/Actor");
-			System.out.println("- Opcion 2: insertar nuevo actor Actor");
-			System.out
-					.println("- Opcion 3: devolver numero de peliculas de un actor dado");
-			System.out.println("- Opcion 4: borrar actor/Actor");
-			System.out.println("- Opcion 5: guardar lista en fichero");
-			System.out.println("- Opcion 6: ordenar lista actores/actrices");
-			System.out.println("- Opcion 7: salir del menu. ");
-			num = Integer.parseInt(br.readLine());
+
 		}
 	}
 }
