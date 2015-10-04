@@ -1,15 +1,10 @@
 package labo1;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import java.util.Scanner;
 
 public class Menu {
 
@@ -20,12 +15,13 @@ public class Menu {
 	static int num;
 
 	public static void main(String[] args) throws IOException {
-		
-		do { // Repetimos el bucle si (num != 0) 
-		
-		// Imprimir por pantalla el menu de usuario
+		//bienvenida
 		System.out.println("¡Bienvenido usuario! Cargando datos...");
+		//cargamos los datos
 		CatalogoActores.getCatalogoActores().CargarDatosFichero();
+		
+		do { //repetimos el bucle si (num != 0) 
+		//imprimir por pantalla el menu de usuario
 		System.out.println("\nIntroduzca la opcion deseada\n");
 		System.out.println("> Opcion 1- Buscar actor/actriz");
 		System.out.println("> Opcion 2- Insertar actor/actriz");
