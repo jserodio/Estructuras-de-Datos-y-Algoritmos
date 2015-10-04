@@ -3,7 +3,7 @@ package labo1;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ListaActores {
+public  class ListaActores {
 
 	private ArrayList<Actor> la;
 	private Actor[] listaOrdenada;

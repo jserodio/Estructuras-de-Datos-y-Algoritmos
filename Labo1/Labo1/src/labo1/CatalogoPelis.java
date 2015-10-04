@@ -19,8 +19,13 @@ public class CatalogoPelis {
 	public ListaPelis getLista() {
 		return this.Lpe;
 	}
+	
+	public void anadirPeli(Pelicula unaPeli){
+		
+		this.getLista().anadirPeli(unaPeli);
+	}
 
-	public void  listaPeliCadaActor(){
+	public void  listaPeliCadaActor(){ //
 		Pelicula unaPelicula = null;
 		for (int i=0; i<this.Lpe.getTamano(); i++){
 			unaPelicula = this.Lpe.EstaEnPos(i);

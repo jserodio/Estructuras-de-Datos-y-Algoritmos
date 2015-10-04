@@ -110,7 +110,7 @@ public class Menu {
 				break;
 		
 			case 8: //Guardar datos de peliculas a un archivo
-				PrintWriter writer = new PrintWriter("src/fichero/copiaLista2.txt");
+				PrintWriter writer = new PrintWriter("src/archivo/copiaLista2.txt");
 				Iterator<Actor> it = CatalogoActores.getCatalogoActores().getLista().getIterador();
 				while (it.hasNext()) {
 					Actor UnActor = it.next();

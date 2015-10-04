@@ -42,6 +42,14 @@ public class ListaPelis {
 		}
 		return unaPelicula;
 	}
+	
+	public void imprimirLista(){
+		Iterator<Pelicula> itr = this.getIterador();
+		while (itr.hasNext()){
+			Pelicula peli = itr.next();
+			System.out.println(peli.getTitulo());
+		}
+	}
 
 	public Pelicula EstaEnPos(int pPos) {
 		Pelicula unaPelicula = null;
