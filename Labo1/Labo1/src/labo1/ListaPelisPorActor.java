@@ -1,27 +1,32 @@
 package labo1;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
-public class ListaPelis {
+public class ListaPelisPorActor {
+	
+	private HashMap <String, Pelicula> listaPelisPorActor;
 
-	private ArrayList<Pelicula> Lpe;
-
-	public ListaPelis() {
-		this.Lpe = new ArrayList<Pelicula>();
+	public ListaPelisPorActor() {
+		this.listaPelisPorActor =new HashMap<String,Pelicula>();
 	}
 
-	public Iterator<Pelicula> getIterador() {
-		return this.Lpe.iterator();
+	public Iterator<Entry<String, Pelicula>> getIterador() {
+		return this.listaPelisPorActor.entrySet().iterator();
 	}
 
 	public int getTamano() {
-		return this.Lpe.size();
+		return this.listaPelisPorActor.size();
 	}
 
-	public void anadirPeli(Pelicula unaPeli) {
-		this.Lpe.add(unaPeli);
+	public void anadirPeli(Pelicula peli){
+		if(!this.listaPelisPorActor.containsKey(peli.getTitulo())){
+			this.listaPelisPorActor.put(peli.getTitulo(), peli);	
+			}
 	}
+
 
 	public void eliminarPeli(Pelicula unaPeli) {
 		this.Lpe.remove(unaPeli);
