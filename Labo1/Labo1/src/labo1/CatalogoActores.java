@@ -33,13 +33,19 @@ public class CatalogoActores {
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
+				
+				if(linea.trim().length() == 0){
+					continue;
+				}
 				String f[] = linea.split(" ### ");
 				ListaActores lAct = new ListaActores(); 
 				String actor = f[0];
 				Actor act= new Actor(actor);
 				CatalogoActores.getCatalogoActores().getLista().insercionActor(act); //añado el actor, al catalogo
 				for (int i = 1; i < f.length; i++) {
-					Pelicula peli =new Pelicula(f[i], lAct);
+					
+					
+					Pelicula peli = new Pelicula(f[i], lAct);
 					act.getListaPelis().anadirPeli(peli);// añado para el actor actual, cada pelicula que tenga
 					peli.getLista().insercionActor(act);//añado, para cada pelicula, el actor que actua.
 					CatalogoPelis.getCatalogoPelis().getLista().anadirPeli(peli);// añado al catalogo la pelicula actual.
