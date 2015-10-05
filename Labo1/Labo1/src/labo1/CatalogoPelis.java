@@ -24,10 +24,15 @@ public class CatalogoPelis {
 		
 		this.getLista().anadirPeli(unaPeli);
 	}
-
-	public void  listaPeliCadaActor(){ //
-		Pelicula unaPelicula = null;
-		for (int i=0; i<this.Lpe.getTamano(); i++){
+	public void  listaPeliCadaActor(String unaPelicula){ //
+		
+		Pelicula peli = Lpe.buscarPeli(unaPelicula);
+			if (peli!= null){
+				peli.getLista();
+			} else System.out.println("La pelicula introducida no existe");
+	}
+		
+		/*for (int i=0; i<this.Lpe.getTamano(); i++){
 			unaPelicula = this.Lpe.EstaEnPos(i);
 			for(int j=0; j<unaPelicula.getLista().getTamano() ; j++){
 				Actor unaActor=unaPelicula.getLista().EstaEnPos(j);
@@ -38,6 +43,6 @@ public class CatalogoPelis {
 					CatalogoActores.getCatalogoActores().getLista().insercionActor(unaActor);
 				}
 			}
-		}
-	}
+		}*/
+	
 }

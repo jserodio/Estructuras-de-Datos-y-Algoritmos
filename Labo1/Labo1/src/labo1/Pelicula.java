@@ -14,7 +14,7 @@ public class Pelicula {
 		return this.titulo;
 
 	}
-	public ListaActores getLista(){
-		return this.la;
+	public void getLista(){
+		la.imprimirLista();
 	}
 }
