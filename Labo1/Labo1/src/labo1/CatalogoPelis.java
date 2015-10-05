@@ -2,6 +2,7 @@ package labo1;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class CatalogoPelis {
 	
@@ -25,8 +26,31 @@ public class CatalogoPelis {
 			this.listaP.put(unaPeli.getTitulo(), unaPeli);
 		}
 	}
+	public void  listaPeliCadaActor(String unaPelicula){ //
+		
+		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
+			if (peli!= null){
+				peli.getLista();
+			} else System.out.println("La pelicula introducida no existe");
+	}
 
-	public void  listaPeliCadaActor(){ //
+	private Pelicula buscarPeli(String unaPelicula){
+		boolean enc = false;
+		Pelicula peli = null;
+		Iterator<Entry<String, Pelicula>> itr = this.getIterador();
+		while (!enc && itr.hasNext()) {
+			peli = (Pelicula) itr.next();
+			if (unaPelicula == peli.getTitulo()) {
+				enc = true;
+			}
+		}
+		if(!enc){
+			System.out.println("no esta pelicula");
+		}
+		return peli;
+	}
+	//Este metodo de abajo me parece superineficiente	
+	/*public void  listaPeliCadaActor(){ //
 		Pelicula unaPelicula = null;
 		for (int i=0; i<this.Lpe.getTamano(); i++){
 			unaPelicula = this.Lpe.EstaEnPos(i);
@@ -40,7 +64,7 @@ public class CatalogoPelis {
 				}
 			}
 		}
-	}
+	}*/
 
 	public void anadirActorAListaDePelis(Pelicula pPeli, String pActor) {
 		// TODO Auto-generated method stub
@@ -66,9 +90,9 @@ public class CatalogoPelis {
 		
 		
 		
-	}
-	private Iterator<Pelicula> iteradorPelis ()
+	
+	private Iterator<Entry<String, Pelicula>> getIterador ()
 	{
-		return this.Lpe.getIterador();
+		return listaP.entrySet().iterator();
 	}
 }
