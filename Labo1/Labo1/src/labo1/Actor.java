@@ -3,18 +3,18 @@ package labo1;
 public class Actor implements Comparable<Actor>{
 
 	private String nombre;
-	 private ListaPelis Lp;
+	 private ListaPelisPorActor Lp;
 	
 	public Actor (String pNombre){
-		this.Lp = new ListaPelis();
+		this.Lp = new ListaPelisPorActor();
 		this.nombre=pNombre;
 	}
 	
-	public void setListaPeli(ListaPelis lp){
+	public void setListaPeli(ListaPelisPorActor lp){
 		this.Lp = lp;
 	}
 	
-	public ListaPelis getListaPelis(){
+	public ListaPelisPorActor getListaPelis(){
 		return this.Lp;
 	}
 	
