@@ -74,15 +74,17 @@ public class Menu {
 				break;
 
 			case 4: //Mostrar peliculas de un actor/actriz
-				System.out.println("Introduzca el nombre del actor:");
-				pNombre = br.readLine();
-				unActor = CatalogoActores.getCatalogoActores().getLista().buscarActor(pNombre);
-				if (unActor == null) {
-					System.out.println("El actor que buscas no esta.");
-				} else {
+				
+				do {
+					System.out.println("Introduzca el nombre del actor:");
+					pNombre = br.readLine();
+					unActor = CatalogoActores.getCatalogoActores().getLista().buscarActor(pNombre);
+					if (unActor == null){
+						System.out.println("El actor que buscas no esta, o es incorrecto.");
+					}
+				} while (unActor == null);
 					peliculas = unActor.devolverNumPelis();
 					System.out.println("El actor que buscas tiene " + peliculas	+ " pelicula(s).");
-				}
 				break;
 				
 			case 5: //Mostrar reparto de una pelicula
@@ -90,6 +92,7 @@ public class Menu {
 				pNombre = br.readLine();
 				//reparto = CatalogoPelis.getCatalogoPelis();
 				//???? reparto = CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
+				CatalogoPelis.getCatalogoPelis().
 				//Tengo que mirar como se hacia para que el mismo metodo fuera diferente
 				//con diferentes parametros en la entrada... polimorfism? o algo asi?           <---------------------PENDIENTE
 				break;
