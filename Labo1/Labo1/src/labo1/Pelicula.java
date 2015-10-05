@@ -12,9 +12,8 @@ public class Pelicula {
 
 	public String getTitulo() {
 		return this.titulo;
-
 	}
-	public void getLista(){
+public void getLista(){
 		la.imprimirLista();
 	}
 }
