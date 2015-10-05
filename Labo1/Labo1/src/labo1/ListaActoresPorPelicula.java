@@ -3,12 +3,12 @@ package labo1;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public  class ListaActores {
+public  class ListaActoresPorPelicula {
 
 	private ArrayList<Actor> la;
 	private Actor[] listaOrdenada;
 	
-	public ListaActores() {
+	public ListaActoresPorPelicula() {
 		this.la = new ArrayList<Actor>();
 	}
 

@@ -3,11 +3,11 @@ package labo1;
 public class Pelicula {
 
 	private String titulo;
-	private ListaActores la;
+	private ListaActoresPorPelicula la = new ListaActoresPorPelicula();
 
-	public Pelicula(String pTitulo, ListaActores pLa) {
+	public Pelicula(String pTitulo) {
 		this.titulo = pTitulo;
-		this.la = pLa;
+	
 	}
 
 	public String getTitulo() {
