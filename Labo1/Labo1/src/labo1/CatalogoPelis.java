@@ -38,23 +38,8 @@ public class CatalogoPelis {
 		
 		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
 		
-		//TO-DO  lo de abajo no sirve porque no hace falta iterar un hashmap
-	/*	boolean enc = false;
-		Pelicula peli = null;
-		Iterator<Entry<String, Pelicula>> itr = this.getIterador();
-		while (!enc && itr.hasNext()) {
-			peli = (Pelicula) itr.next();
-			if (unaPelicula == peli.getTitulo()) {
-				enc = true;
-			}
-		}
-		if(!enc){
-			System.out.println("no esta pelicula");
-		}
-		return peli;*/
 	}
-
-	public void anadirActorAListaDePelis(Pelicula pPeli, String pActor) {
+	public void anadirActorAListaDePelis(Pelicula pPeli, String pActor){
 		// TODO Auto-generated method stub
 		/*1. Se busca la peli
 		 * 2. Te metes dentro	
@@ -70,13 +55,23 @@ public class CatalogoPelis {
 			//MiraR si existe la peli, si no existe se añade
 			if(!existePelicula(pPeli))
 			{
+				this.listaP.put(key, value)
 				//se añade
 				
 			}
 			
 				
+			}*/
+			
+		}
+		
+
+		public boolean existePelicula(Pelicula pPeli){
+			if (this.listaP.containsKey(pPeli)){
+				return true;
+			}else{
+				return false;
 			}
 			
-		}*/
-		
+		}
 }
