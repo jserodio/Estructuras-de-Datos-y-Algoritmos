@@ -1,11 +1,16 @@
 package labo1;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+
 public class Pelicula {
 
 	private String titulo;
-	private ListaActoresPorPelicula la = new ListaActoresPorPelicula();
+	private HashMap<String, Actor> listaA;
 
 	public Pelicula(String pTitulo) {
+		this.listaA = new HashMap<String, Actor>();
 		this.titulo = pTitulo;
 	
 	}
@@ -13,11 +18,17 @@ public class Pelicula {
 	public String getTitulo() {
 		return this.titulo;
 	}
-	public ListaActoresPorPelicula getLista(){
-		return this.la;
-	}
+	/*public ListaActoresPorPelicula getLista(){
+		return this.;
+	}*/
 	
 	public void obtenerActores(){
-		la.imprimirLista();
+		//Esto es el metodo para mostrar todos los actores de la pelicula
+		Iterator<Entry<String, Actor>> itr = listaA.entrySet().iterator();
+		while (itr.hasNext()){
+			Actor actor = (Actor)itr.next();
+			System.out.println(actor.getNombre());
+		}
 	}
+
 }

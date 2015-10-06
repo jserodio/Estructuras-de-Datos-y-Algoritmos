@@ -30,7 +30,7 @@ public class CatalogoPelis {
 		
 		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
 			if (peli!= null){
-				peli.getLista();
+				peli.obtenerActores();
 			} else System.out.println("La pelicula introducida no existe");
 	}
 
@@ -39,32 +39,6 @@ public class CatalogoPelis {
 		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
 		
 	}
-	public void anadirActorAListaDePelis(Pelicula pPeli, String pActor){
-		// TODO Auto-generated method stub
-		/*1. Se busca la peli
-		 * 2. Te metes dentro	
-		 * 3. Una vez dentro añades con un .add el actor creando el actor
-		 * */
-		
-		
-		
-		/*Actor actor=new Actor(pActor);
-		Iterator itr = this.iteradorPelis();
-		while(itr.hasNext())
-		{
-			//MiraR si existe la peli, si no existe se añade
-			if(!existePelicula(pPeli))
-			{
-				this.listaP.put(key, value)
-				//se añade
-				
-			}
-			
-				
-			}*/
-			
-		}
-		
 
 		public boolean existePelicula(Pelicula pPeli){
 			if (this.listaP.containsKey(pPeli)){
