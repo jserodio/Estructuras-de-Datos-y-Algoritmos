@@ -39,12 +39,10 @@ public class CatalogoActores {
 					continue;
 				}
 				String f[] = linea.split(" ### ");
-				ListaActoresPorPelicula lAct = new ListaActoresPorPelicula();
 				String actor = f[0];
 				System.out.println(actor);
 				Actor act= new Actor(actor);
 				CatalogoActores.getCatalogoActores().anadirActor(act); //añado el actor, al catalogo
-				
 				for (int i = 1; i < f.length; i++) {
 
 					if(f[1] !=null){ //si no hay pelicula, pasar a otro actor.
@@ -53,7 +51,8 @@ public class CatalogoActores {
 						//añade el actor a la peli actual
 						Pelicula p=new Pelicula(titulo);
 						CatalogoPelis.getCatalogoPelis().anadirPeli(p);
-						CatalogoPelis.getCatalogoPelis().anadirActorAListaDePelis(p, actor);
+						act.anadirPeli(p);//añadimos la pelicula a la listapelis del actor
+						p.anadirActor(act);
 						//---------------------------------
 					//if (!(this.getLista().estaActor(act.getNombre())))
 					//	this.la.insercionActor(act);
