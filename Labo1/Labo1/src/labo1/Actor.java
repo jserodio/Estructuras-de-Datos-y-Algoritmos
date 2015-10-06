@@ -9,18 +9,11 @@ public class Actor implements Comparable<Actor>{
 	private String nombre;
 	private HashMap<String, Pelicula> listaP;
 	
+
 	public Actor (String pNombre){
 		this.listaP = new HashMap<String,Pelicula>();
-		this.nombre=pNombre;
+this.nombre=pNombre;
 	}
-	
-	/*public void setListaPeli(ListaPelisPorActor lp){
-		this.Lp = lp;
-	}
-	
-	/*public ListaPelisPorActor getListaPelis(){
-		return this.Lp;
-	}*/
 	
 	public String getNombre(){
 		return this.nombre;
@@ -31,7 +24,7 @@ public class Actor implements Comparable<Actor>{
 	}
 	
 	
-	public int compareTo(Actor unaActor) {
+	public int compareTo(Actor unaActor) { //sirve para  mirar si un actor es igual  a  uno que introduzcamos nosotros
 		return this.getNombre().compareTo(unaActor.nombre);
 	}
 	

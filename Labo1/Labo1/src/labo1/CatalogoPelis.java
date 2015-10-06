@@ -26,7 +26,7 @@ public class CatalogoPelis {
 			this.listaP.put(unaPeli.getTitulo(), unaPeli);
 		}
 	}
-	public void  listaPeliCadaActor(String unaPelicula){ //
+	public void  listaPeliCadaActor(String unaPelicula){ //este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
 		
 		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
 			if (peli!= null){
@@ -35,17 +35,16 @@ public class CatalogoPelis {
 	}
 
 	private Pelicula buscarPeli(String unaPelicula){
-		
 		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
-		
 	}
 
 		public boolean existePelicula(Pelicula pPeli){
-			if (this.listaP.containsKey(pPeli)){
+
+				if (this.listaP.containsKey(pPeli)){
 				return true;
 			}else{
 				return false;
-			}
 			
+			}
 		}
 }
