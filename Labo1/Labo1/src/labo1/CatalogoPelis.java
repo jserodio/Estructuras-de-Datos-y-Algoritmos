@@ -35,7 +35,11 @@ public class CatalogoPelis {
 	}
 
 	private Pelicula buscarPeli(String unaPelicula){
-		boolean enc = false;
+		
+		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
+		
+		//TO-DO  lo de abajo no sirve porque no hace falta iterar un hashmap
+	/*	boolean enc = false;
 		Pelicula peli = null;
 		Iterator<Entry<String, Pelicula>> itr = this.getIterador();
 		while (!enc && itr.hasNext()) {
@@ -47,32 +51,19 @@ public class CatalogoPelis {
 		if(!enc){
 			System.out.println("no esta pelicula");
 		}
-		return peli;
+		return peli;*/
 	}
-	//Este metodo de abajo me parece superineficiente	
-	/*public void  listaPeliCadaActor(){ //
-		Pelicula unaPelicula = null;
-		for (int i=0; i<this.Lpe.getTamano(); i++){
-			unaPelicula = this.Lpe.EstaEnPos(i);
-			for(int j=0; j<unaPelicula.getLista().getTamano() ; j++){
-				Actor unaActor=unaPelicula.getLista().EstaEnPos(j);
-				if( CatalogoActores.getCatalogoActores().getLista().buscarActor(unaActor.getNombre())!=null)
-					CatalogoActores.getCatalogoActores().getLista().buscarActor(unaActor.getNombre()).getListaPelis().anadirPeli(unaPelicula);
-				else{
-					unaActor.getListaPelis().anadirPeli(unaPelicula);
-					CatalogoActores.getCatalogoActores().getLista().insercionActor(unaActor);
-				}
-			}
-		}
-	}*/
 
 	public void anadirActorAListaDePelis(Pelicula pPeli, String pActor) {
 		// TODO Auto-generated method stub
 		/*1. Se busca la peli
-		 * 2. Te metes dentro
+		 * 2. Te metes dentro	
 		 * 3. Una vez dentro añades con un .add el actor creando el actor
 		 * */
-		Actor actor=new Actor(pActor);
+		
+		
+		
+		/*Actor actor=new Actor(pActor);
 		Iterator itr = this.iteradorPelis();
 		while(itr.hasNext())
 		{
@@ -86,13 +77,6 @@ public class CatalogoPelis {
 				
 			}
 			
-		}
+		}*/
 		
-		
-		
-	
-	private Iterator<Entry<String, Pelicula>> getIterador ()
-	{
-		return listaP.entrySet().iterator();
-	}
 }

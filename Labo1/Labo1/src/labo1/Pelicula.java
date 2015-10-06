@@ -13,7 +13,11 @@ public class Pelicula {
 	public String getTitulo() {
 		return this.titulo;
 	}
-public void getLista(){
+	public ListaActoresPorPelicula getLista(){
+		return this.la;
+	}
+	
+	public void obtenerActores(){
 		la.imprimirLista();
 	}
 }
