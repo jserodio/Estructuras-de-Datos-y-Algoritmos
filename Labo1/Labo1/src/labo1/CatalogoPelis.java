@@ -26,7 +26,7 @@ public class CatalogoPelis {
 			this.listaP.put(unaPeli.getTitulo(), unaPeli);
 		}
 	}
-	public void  listaPeliCadaActor(String unaPelicula){ //
+	public void  listaPeliCadaActor(String unaPelicula){ //este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
 		
 		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
 			if (peli!= null){
@@ -34,12 +34,11 @@ public class CatalogoPelis {
 			} else System.out.println("La pelicula introducida no existe");
 	}
 
-<<<<<<< HEAD
-=======
-	private Pelicula buscarPeli(String unaPelicula){
+
+	private Pelicula buscarPeli(String unaPelicula){ //permite buscar una pelicula en el hashmap
 		boolean enc = false;
 		Pelicula peli = null;
-		Iterator<Entry<String, Pelicula>> itr = this.getIterador();
+		Iterator<Entry<String, Pelicula>> itr = this.getIterador();;
 		while (!enc && itr.hasNext()) {
 			peli = (Pelicula) itr.next();
 			if (unaPelicula == peli.getTitulo()) {
@@ -52,7 +51,6 @@ public class CatalogoPelis {
 		return peli;
 	}
 	//Este metodo de abajo me parece superineficiente	
->>>>>>> branch 'master' of https://github.com/jserodio/Estructuras-de-Datos-y-Algoritmos.git
 	/*public void  listaPeliCadaActor(){ //
 		Pelicula unaPelicula = null;
 		for (int i=0; i<this.Lpe.getTamano(); i++){
@@ -92,16 +90,15 @@ public class CatalogoPelis {
 			
 		}
 		
-		public boolean existePelicula(Pelicula pPeli){
+		public boolean existePelicula(Pelicula pPeli)
+		{ //comprueba que el hashmap contiene la pelicula
 			if (this.listaP.containsKey(pPeli)){
 				return true;
 			}else{
 				return false;
-			}
 			
 		}
 		
-<<<<<<< HEAD
 	
 	/*private Iterator<Pelicula> iteradorPelis ()
 =======
@@ -113,8 +110,6 @@ public class CatalogoPelis {
 <<<<<<< HEAD
 		return this.listaP.entrySet().iterator();
 	}*/
-=======
-		return listaP.entrySet().iterator();
+		//return listaP.entrySet().iterator();
 	}
->>>>>>> branch 'master' of https://github.com/jserodio/Estructuras-de-Datos-y-Algoritmos.git
 }

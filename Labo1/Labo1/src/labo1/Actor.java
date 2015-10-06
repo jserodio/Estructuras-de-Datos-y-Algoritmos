@@ -5,14 +5,11 @@ public class Actor implements Comparable<Actor>{
 	private String nombre;
 	 private ListaPelisPorActor Lp;
 	
-	public Actor (String pNombre){
+	public Actor (String pNombre){ //constructora
 		this.Lp = new ListaPelisPorActor();
 		this.nombre=pNombre;
 	}
 	
-	public void setListaPeli(ListaPelisPorActor lp){
-		this.Lp = lp;
-	}
 	
 	public ListaPelisPorActor getListaPelis(){
 		return this.Lp;
@@ -27,7 +24,7 @@ public class Actor implements Comparable<Actor>{
 	}
 	
 	
-	public int compareTo(Actor unaActor) {
+	public int compareTo(Actor unaActor) { //sirve para  mirar si un actor es igual  a  uno que introduzcamos nosotros
 		return this.getNombre().compareTo(unaActor.nombre);
 	}
 }

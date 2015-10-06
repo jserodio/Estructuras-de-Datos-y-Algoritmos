@@ -8,7 +8,7 @@ public  class ListaActoresPorPelicula {
 	private ArrayList<Actor> la;
 	private Actor[] listaOrdenada;
 	
-	public ListaActoresPorPelicula() {
+	public ListaActoresPorPelicula() { //permite acceder al arraylist (luego sera hashmap)
 		this.la = new ArrayList<Actor>();
 	}
 
@@ -24,7 +24,7 @@ public  class ListaActoresPorPelicula {
 		return this.la.iterator();
 	}
 
-	public boolean estaActor(String pNombre) {
+	public boolean estaActor(String pNombre) { //dice si un actor esta o no
 		Iterator<Actor> itr = this.getIterador();
 		boolean esta = false;
 		Actor unaActor = null;
@@ -53,11 +53,11 @@ public  class ListaActoresPorPelicula {
 		return unaActor;
 	}
 
-	public int getTamano() {
+	public int getTamano() { //devuelve el tamaño de la lista
 		return this.la.size();
 	}
 
-	public Actor EstaEnPos(int pPos) {
+	public Actor EstaEnPos(int pPos) { //nos permite conocer que actor se encuentra en una posicion dada del arraylist
 		Actor unaActor = null;
 		if (!this.la.isEmpty()) {
 			if (pPos < getTamano() && (pPos >= 0)) {

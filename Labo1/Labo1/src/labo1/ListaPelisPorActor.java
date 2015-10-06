@@ -14,7 +14,7 @@ public class ListaPelisPorActor {
 	}
 	
 
-	public Iterator<Entry<String, Pelicula>> getIterador() {
+	public Iterator<Entry<String, Pelicula>> getIterador() {//nos permitira iterar y recorrer el hashmap
 		return this.LPeliculas.entrySet().iterator();
 	}
 
