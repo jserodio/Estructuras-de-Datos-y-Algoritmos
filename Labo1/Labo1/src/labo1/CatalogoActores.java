@@ -55,10 +55,6 @@ public class CatalogoActores {
 						CatalogoPelis.getCatalogoPelis().anadirPeli(p);
 						CatalogoPelis.getCatalogoPelis().anadirActorAListaDePelis(p, actor);
 						//---------------------------------
-						act.getListaPelis().anadirPeli(p);// añado para el actor actual, cada pelicula que tenga
-						p.getLista().insercionActor(act);//añado, para cada pelicula, el actor que actua.
-						CatalogoPelis.getCatalogoPelis().anadirPeli(p);// añado al catalogo la pelicula actual.
-
 					//if (!(this.getLista().estaActor(act.getNombre())))
 					//	this.la.insercionActor(act);
 					}
