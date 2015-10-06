@@ -26,7 +26,7 @@ public class CatalogoPelis {
 		}
 	}
 
-	public void  listaPeliCadaActor(){ //
+	/*public void  listaPeliCadaActor(){ //
 		Pelicula unaPelicula = null;
 		for (int i=0; i<this.Lpe.getTamano(); i++){
 			unaPelicula = this.Lpe.EstaEnPos(i);
@@ -40,7 +40,7 @@ public class CatalogoPelis {
 				}
 			}
 		}
-	}
+	}*/
 
 	public void anadirActorAListaDePelis(Pelicula pPeli, String pActor) {
 		// TODO Auto-generated method stub
@@ -55,6 +55,7 @@ public class CatalogoPelis {
 			//MiraR si existe la peli, si no existe se añade
 			if(!existePelicula(pPeli))
 			{
+				this.listaP.put(key, value)
 				//se añade
 				
 			}
@@ -64,11 +65,18 @@ public class CatalogoPelis {
 			
 		}
 		
+		public boolean existePelicula(Pelicula pPeli){
+			if (this.listaP.containsKey(pPeli)){
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
 		
-		
-	}
-	private Iterator<Pelicula> iteradorPelis ()
+	
+	/*private Iterator<Pelicula> iteradorPelis ()
 	{
-		return this.Lpe.getIterador();
-	}
+		return this.listaP.entrySet().iterator();
+	}*/
 }
