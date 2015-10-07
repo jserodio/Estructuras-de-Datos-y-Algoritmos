@@ -45,7 +45,7 @@ public class Menu {
 					unActor = new Actor(pNombre);
 					//llamo al método buscarActor en CatalogoActores.java
 					//si lo encuentra devuelve true, y si no, false.
-					if (CatalogoActores.getCatalogoActores().buscarActor(unActor)){
+					if (CatalogoActores.getCatalogoActores().estaActor(unActor)){
 						System.out.println(unActor.getNombre() + " esta en la lista.");
 						decision=false;
 					} else {
@@ -86,10 +86,9 @@ public class Menu {
 					pNombre = br.readLine();
 					unActor = new Actor(pNombre);
 					//si encuentra el actor a borrar
-					if (CatalogoActores.getCatalogoActores().buscarActor(unActor)) {
-						System.out.println("El actor se ha eliminado");
-						//falta crear metodo ELIMINAR ACTOR
+					if (CatalogoActores.getCatalogoActores().estaActor(unActor)) { 
 						CatalogoActores.getCatalogoActores().eliminarActor(unActor);
+						System.out.println("El actor se ha eliminado");
 					} else {
 						//si no encuentra el actor, decide!!
 						System.out.println("el actor " + pNombre + " no esta");
@@ -110,7 +109,7 @@ public class Menu {
 					pNombre = br.readLine();
 					unActor = new Actor(pNombre);
 					//busca si esta
-					if (CatalogoActores.getCatalogoActores().buscarActor(unActor)){
+					if (CatalogoActores.getCatalogoActores().estaActor(unActor)){
 						peliculas = new ListaPelisPorActor();
 						// el actor que buscas tiene blablablabla peliculas....?
 						peliculas.imprimirLista();
@@ -135,14 +134,14 @@ public class Menu {
 				pNombre = br.readLine();
 				//reparto = CatalogoPelis.getCatalogoPelis();
 				//???? reparto = CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
-				CatalogoPelis.getCatalogoPelis().
+				CatalogoPelis.getCatalogoPelis().listaPeliCadaActor(pNombre);
 				//Tengo que mirar como se hacia para que el mismo metodo fuera diferente
 				//con diferentes parametros en la entrada... polimorfism? o algo asi?           <---------------------PENDIENTE
 				break;
 				
 			case 6: //Obtener una lista de actores ordenada
 				System.out.println("Se va a ordenar la lista.");
-				CatalogoActores.getCatalogoActores().la.ordenarActores();
+				CatalogoActores.getCatalogoActores().la.
 				break;
 
 			case 7: //Hacer una donacion a una pelicula 
