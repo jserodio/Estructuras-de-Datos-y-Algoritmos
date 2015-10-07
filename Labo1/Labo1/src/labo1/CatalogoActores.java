@@ -22,9 +22,21 @@ public class CatalogoActores {
 		}
 		return miCatalogoActores;
 	}
-	public void anadirActor(Actor unActor){
-		if(!this.listaA.containsKey(unActor.getNombre())){
+	
+	public boolean estaActor(Actor unActor) {
+		//Si encuentra un actor con ese nombre, verdad; si no, mentiro!
+		if(this.listaA.containsKey(unActor.getNombre())) return true; else return false;
+	}
+	
+	public boolean anadirActor(Actor unActor){
+		//Si encuentra NO encuentra el actor, añadelo
+		if(!this.estaActor(unActor)){
 			this.listaA.put(unActor.getNombre(), unActor);
+			//retorna verdad que se ha añadido correctamente
+			return true;
+		}else{
+			//retorna falso si ya existía el actor!
+			return false;
 		}
 	}
 
@@ -78,4 +90,16 @@ public class CatalogoActores {
 		
 
 	}
+
+	public void eliminarActor(Actor unActor) {
+			if(!estaActor(unActor)){
+				System.out.println("no esta el actor");
+				
+			}else{
+				this.listaA.remove(unActor);
+				
+			}
+	}
+
+
 }

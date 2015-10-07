@@ -8,8 +8,8 @@ import java.util.Iterator;
 
 public class Menu {
 
-	static int peliculas;
-	static String reparto;
+	static ListaPelisPorActor peliculas;
+	static boolean decision; //true será que si, false que no.
 	static Actor unActor = null;
 	static String pNombre;
 	static int num;
@@ -39,38 +39,67 @@ public class Menu {
 			switch (num) {
 
 			case 1: //buscar actor/actriz
-				System.out.println("Introduzca un nombre a buscar:");
-				pNombre = br.readLine();
-				unActor = CatalogoActores.getCatalogoActores().la.buscarActor(pNombre);
-				if (unActor == null){
-					System.out.println("El actor " + pNombre + " no está.");
-				} else {
-					System.out.println(unActor.getNombre() + " esta en la lista.");
-				}
+				do{
+					System.out.println("Introduzca un nombre a buscar:");
+					pNombre = br.readLine();
+					unActor = new Actor(pNombre);
+					//llamo al método buscarActor en CatalogoActores.java
+					//si lo encuentra devuelve true, y si no, false.
+					if (CatalogoActores.getCatalogoActores().estaActor(unActor)){
+						System.out.println(unActor.getNombre() + " esta en la lista.");
+						decision=false;
+					} else {
+						System.out.println("El actor " + unActor.getNombre() + " no está.");
+						System.out.println("Desea volver a intentarlo? Si o No?");
+						if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
+							decision=true;
+						}else{
+							decision=false;
+						}
+					}
+				}while(decision);
 				break;
 
 			case 2: //Insertar actor/actriz
-				System.out.println("Introduce Actor a insertar:");
-				pNombre = br.readLine();
-				unActor = new Actor(pNombre);
-				if (CatalogoActores.getCatalogoActores().getLista().estaActor(pNombre)) {
-					System.out.println("El actor ya esta introducido.");
-				} else {
-					System.out.println("Se va a insertar el actor " + pNombre);
-					CatalogoActores.getCatalogoActores().getLista().insercionActor(unActor);
-				}
+				do{
+					System.out.println("Introduce el nombre del actor:");
+					pNombre = br.readLine();
+					unActor = new Actor(pNombre);
+					if (CatalogoActores.getCatalogoActores().anadirActor(unActor)){
+						System.out.println("El Actor ha sido introducido correctamente!");
+						decision=false;
+					}else{
+						System.out.println("Este actor ya existe.");
+						System.out.println("Desea volver a intentarlo? Si o No?");
+						if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
+							decision=true;
+						}else{
+							decision=false;
+						}
+					}
+				} while(decision);
 				break;
 
 			case 3: //Borrar un actor/actriz
-				System.out.println("introduce un actor a borrar");
-				pNombre = br.readLine();
-				unActor = CatalogoActores.getCatalogoActores().getLista().buscarActor(pNombre);
-				if (unActor != null) {
-					System.out.println("el actor esta y se va a borrar");
-					CatalogoActores.getCatalogoActores().getLista().borrarActor(unActor);
-				} else {
-					System.out.println("el actor " + pNombre + " no esta");
-				}
+				do{
+					System.out.println("introduce un actor a borrar");
+					pNombre = br.readLine();
+					unActor = new Actor(pNombre);
+					//si encuentra el actor a borrar
+					if (CatalogoActores.getCatalogoActores().estaActor(unActor)) { 
+						CatalogoActores.getCatalogoActores().eliminarActor(unActor);
+						System.out.println("El actor se ha eliminado");
+					} else {
+						//si no encuentra el actor, decide!!
+						System.out.println("el actor " + pNombre + " no esta");
+						System.out.println("Desea volver a intentarlo? Si o No?");
+						if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
+							decision=true;
+						}else{
+							decision=false;
+						}
+					}
+				}while(decision);
 				break;
 
 			case 4: //Mostrar peliculas de un actor/actriz
@@ -78,13 +107,26 @@ public class Menu {
 				do {
 					System.out.println("Introduzca el nombre del actor:");
 					pNombre = br.readLine();
-					unActor = CatalogoActores.getCatalogoActores().getLista().buscarActor(pNombre);
-					if (unActor == null){
+					unActor = new Actor(pNombre);
+					//busca si esta
+					if (CatalogoActores.getCatalogoActores().estaActor(unActor)){
+						peliculas = new ListaPelisPorActor();
+						// el actor que buscas tiene blablablabla peliculas....?
+						peliculas.imprimirLista();
+						decision=false;
+					}else{
+						//no esta
 						System.out.println("El actor que buscas no esta, o es incorrecto.");
+						System.out.println("Desea volver a intentarlo? Si o No?");
+						if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
+							decision=true;
+						}else{
+							decision=false;
+						}
 					}
-				} while (unActor == null);
-					peliculas = unActor.devolverNumPelis();
-					System.out.println("El actor que buscas tiene " + peliculas	+ " pelicula(s).");
+						
+				}  while(decision);
+					
 				break;
 				
 			case 5: //Mostrar reparto de una pelicula
@@ -92,14 +134,14 @@ public class Menu {
 				pNombre = br.readLine();
 				//reparto = CatalogoPelis.getCatalogoPelis();
 				//???? reparto = CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
-				CatalogoPelis.getCatalogoPelis().
+				CatalogoPelis.getCatalogoPelis().listaPeliCadaActor(pNombre);
 				//Tengo que mirar como se hacia para que el mismo metodo fuera diferente
 				//con diferentes parametros en la entrada... polimorfism? o algo asi?           <---------------------PENDIENTE
 				break;
 				
 			case 6: //Obtener una lista de actores ordenada
 				System.out.println("Se va a ordenar la lista.");
-				CatalogoActores.getCatalogoActores().la.ordenarActores();
+				CatalogoActores.getCatalogoActores().la.
 				break;
 
 			case 7: //Hacer una donacion a una pelicula 
