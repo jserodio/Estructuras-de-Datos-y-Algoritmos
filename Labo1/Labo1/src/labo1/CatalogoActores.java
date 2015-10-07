@@ -12,7 +12,7 @@ public class CatalogoActores {
 
 	// constructora
 	private CatalogoActores() {
-		this.listaA = new HashMap<>();
+		this.listaA = new HashMap<String, Actor>();
 	}
 
 	// getters y setters
