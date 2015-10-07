@@ -44,10 +44,10 @@ public class Menu {
 					//llamo al método buscarActor en CatalogoActores.java
 					//si lo encuentra devuelve true, y si no, false.
 					if (CatalogoActores.getCatalogoActores().estaActor(pNombre)){
-						System.out.println(unActor.getNombre() + " esta en la lista.");
+						System.out.println(pNombre + " esta en la lista.");
 						decision=false;
 					} else {
-						System.out.println("El actor " + unActor.getNombre() + " no está.");
+						System.out.println("El actor " + pNombre + " no está.");
 						System.out.println("Desea volver a intentarlo? Si o No?");
 						if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
 							decision=true;
