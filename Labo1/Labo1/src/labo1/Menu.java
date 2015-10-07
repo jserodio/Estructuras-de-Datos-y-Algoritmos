@@ -106,7 +106,7 @@ public class Menu {
 					pNombre = br.readLine();
 					//busca si esta
 					if (CatalogoActores.getCatalogoActores().estaActor(pNombre)){
-						//devuelve pelis
+						//devuelve pelis2
 						CatalogoPelis.getCatalogoPelis().listaPeliCadaActor(pNombre);
 						decision=false;
 					}else{
