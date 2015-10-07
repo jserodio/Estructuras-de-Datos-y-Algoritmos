@@ -39,13 +39,15 @@ this.nombre=pNombre;
 		this.listaP.remove(unaPeli.getTitulo(), unaPeli);
 	}
 	
-	public void imprimirLista(){
+	public void obtenerPelis(){
 		Iterator<Entry<String, Pelicula>> itr = listaP.entrySet().iterator();
 		while (itr.hasNext()){
 			Pelicula peli = (Pelicula)itr.next();
 			System.out.println(peli.getTitulo());
 		}
 	}
+	
+	
 	
 	private Pelicula buscarPeli(String unaPelicula){
 		
