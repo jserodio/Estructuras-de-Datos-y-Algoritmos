@@ -12,7 +12,7 @@ public class Actor implements Comparable<Actor>{
 
 	public Actor (String pNombre){
 		this.listaP = new HashMap<String,Pelicula>();
-this.nombre=pNombre;
+		this.nombre=pNombre;
 	}
 	
 	public String getNombre(){
@@ -39,18 +39,19 @@ this.nombre=pNombre;
 		this.listaP.remove(unaPeli.getTitulo(), unaPeli);
 	}
 	
-	public void imprimirLista(){
-		Iterator<Entry<String, Pelicula>> itr = listaP.entrySet().iterator();
+	public void obtenerPelis(){
+		Iterator<Pelicula> itr = listaP.values().iterator();
+		boolean sinpelis = true;
 		while (itr.hasNext()){
+			sinpelis = false;
 			Pelicula peli = (Pelicula)itr.next();
 			System.out.println(peli.getTitulo());
 		}
+		if (sinpelis)	System.out.println("No existen peliculas para este actor");
 	}
 	
-	private Pelicula buscarPeli(String unaPelicula){
-		
+	public Pelicula buscarPeli(String unaPelicula){
 		return this.listaP.get(unaPelicula);
-		
 	}
 	
 }

@@ -23,14 +23,22 @@ public class CatalogoActores {
 		return miCatalogoActores;
 	}
 	
-	public boolean buscarActor(String pActor) {
+
+	public boolean estaActor(String pActor) {
+
 		//Si encuentra un actor con ese nombre, verdad; si no, mentiro!
 		if(this.listaA.containsKey(pActor)) return true; else return false;
+
+	}
+	
+	public Actor buscarActor(String pNombre){
+		return CatalogoActores.getCatalogoActores().listaA.get(pNombre);
 	}
 	
 	public boolean anadirActor(Actor unActor){
-		//Si NO encuentra el actor, añadelo
-		if(!this.buscarActor(unActor.getNombre())){
+
+		//Si encuentra NO encuentra el actor, añadelo
+		if(! estaActor(unActor.getNombre()) ){
 			this.listaA.put(unActor.getNombre(), unActor);
 			//retorna verdad que se ha añadido correctamente
 			return true;
@@ -41,17 +49,24 @@ public class CatalogoActores {
 	}
 
 	public boolean eliminarActor(Actor unActor) {
-		//Si encuentra el actor, elimminalo
-		if(this.buscarActor(unActor)){
-			this.listaA.remove(unActor.getNombre(), unActor);
-			//retorna verdad que se ha borrado correctamente
+		//si está el actor lo borras
+		if(estaActor(unActor.getNombre())){
+			this.listaA.remove(unActor);
 			return true;
 		}else{
-			//retorna falso si no existe el actor!
 			return false;
 		}
 	}
-
+	
+	public void  listaActorCadaPeli(String unaPelicula){ 
+		//este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
+		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
+			if (peli!= null){
+				peli.obtenerActores();
+			} else System.out.println("La pelicula introducida no existe");
+	}
+	
+	
 	public void CargarDatosFichero() {
 		try {
 			Scanner entrada = new Scanner(new FileReader("src/archivo/10-actors.txt"));
@@ -102,7 +117,12 @@ public class CatalogoActores {
 
 	}
 
-	
+	public void ordenarActores() {
+		//hay que hacer
+		
+	}
+
+
 
 
 }

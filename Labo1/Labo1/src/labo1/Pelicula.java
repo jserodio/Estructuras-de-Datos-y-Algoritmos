@@ -32,7 +32,7 @@ public class Pelicula {
 	
 	public void obtenerActores(){
 		//Esto es el metodo para mostrar todos los actores de la pelicula
-		Iterator<Entry<String, Actor>> itr = listaA.entrySet().iterator();
+		Iterator<Actor> itr = listaA.values().iterator();
 		while (itr.hasNext()){
 			Actor actor = (Actor)itr.next();
 			System.out.println(actor.getNombre());

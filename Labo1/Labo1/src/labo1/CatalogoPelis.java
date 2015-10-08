@@ -21,30 +21,26 @@ public class CatalogoPelis {
 		return miCatalogoPelis;
 	}
 
+	public boolean existePelicula(String pPeli){
+		if (this.listaP.containsKey(pPeli))	return true; else return false;
+	}
+	
+	public Pelicula buscarPeli(String unaPelicula){
+		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
+	}
+	
 	public void anadirPeli(Pelicula unaPeli){
 		if(!this.listaP.containsKey(unaPeli.getTitulo())){
 			this.listaP.put(unaPeli.getTitulo(), unaPeli);
 		}
 	}
-	public void  listaPeliCadaActor(String unaPelicula){ //este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
+	
+	public void  listaPeliCadaActor(String unActor){ //este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
 		
-		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
-			if (peli!= null){
-				peli.obtenerActores();
+		Actor actor = CatalogoActores.getCatalogoActores().buscarActor(unActor);
+			if (actor!= null){
+				actor.obtenerPelis();
 			} else System.out.println("La pelicula introducida no existe");
 	}
 
-	private Pelicula buscarPeli(String unaPelicula){
-		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
-	}
-
-		public boolean existePelicula(Pelicula pPeli){
-
-				if (this.listaP.containsKey(pPeli)){
-				return true;
-			}else{
-				return false;
-			
-			}
-		}
 }
