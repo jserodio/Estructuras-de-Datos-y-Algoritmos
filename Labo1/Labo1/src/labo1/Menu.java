@@ -86,10 +86,11 @@ public class Menu {
 					pNombre = br.readLine();
 					unActor = new Actor(pNombre);
 					//si encuentra el actor a borrar
-					if (CatalogoActores.getCatalogoActores().buscarActor(unActor)) {
+					if (CatalogoActores.getCatalogoActores().buscarActor(pNombre)) {
 						System.out.println("El actor se ha eliminado");
 						//falta crear metodo ELIMINAR ACTOR
 						CatalogoActores.getCatalogoActores().eliminarActor(unActor);
+						decision=false;
 					} else {
 						//si no encuentra el actor, decide!!
 						System.out.println("el actor " + pNombre + " no esta");
@@ -135,7 +136,7 @@ public class Menu {
 				pNombre = br.readLine();
 				//reparto = CatalogoPelis.getCatalogoPelis();
 				//???? reparto = CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
-				CatalogoPelis.getCatalogoPelis().
+				
 				//Tengo que mirar como se hacia para que el mismo metodo fuera diferente
 				//con diferentes parametros en la entrada... polimorfism? o algo asi?           <---------------------PENDIENTE
 				break;

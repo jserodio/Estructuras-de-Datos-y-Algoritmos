@@ -23,14 +23,14 @@ public class CatalogoActores {
 		return miCatalogoActores;
 	}
 	
-	public boolean buscarActor(Actor unActor) {
+	public boolean buscarActor(String pActor) {
 		//Si encuentra un actor con ese nombre, verdad; si no, mentiro!
-		if(this.listaA.containsKey(unActor.getNombre())) return true; else return false;
+		if(this.listaA.containsKey(pActor)) return true; else return false;
 	}
 	
 	public boolean anadirActor(Actor unActor){
-		//Si encuentra NO encuentra el actor, añadelo
-		if(!this.buscarActor(unActor)){
+		//Si NO encuentra el actor, añadelo
+		if(!this.buscarActor(unActor.getNombre())){
 			this.listaA.put(unActor.getNombre(), unActor);
 			//retorna verdad que se ha añadido correctamente
 			return true;
@@ -40,6 +40,17 @@ public class CatalogoActores {
 		}
 	}
 
+	public boolean eliminarActor(Actor unActor) {
+		//Si encuentra el actor, elimminalo
+		if(this.buscarActor(unActor)){
+			this.listaA.remove(unActor.getNombre(), unActor);
+			//retorna verdad que se ha borrado correctamente
+			return true;
+		}else{
+			//retorna falso si no existe el actor!
+			return false;
+		}
+	}
 
 	public void CargarDatosFichero() {
 		try {
@@ -90,6 +101,8 @@ public class CatalogoActores {
 		
 
 	}
+
+	
 
 
 }
