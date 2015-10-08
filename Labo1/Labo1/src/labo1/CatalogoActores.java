@@ -3,7 +3,10 @@ package labo1;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class CatalogoActores {
 	// atributos
@@ -58,6 +61,16 @@ public class CatalogoActores {
 		}
 	}
 	
+	public void ordenarActores() {
+		//Utilizo treeSet para crear un sorted set (una lista ordenada, de la key)
+		SortedSet<String> sortedSet = new TreeSet<String>(listaA.keySet());
+		Iterator<String> itrOrdenada = sortedSet.iterator();
+		while (itrOrdenada.hasNext()){
+			String actor = itrOrdenada.next();
+			System.out.println(actor);
+		}
+	}
+	
 	public void  listaActorCadaPeli(String unaPelicula){ 
 		//este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
 		Pelicula peli = CatalogoPelis.getCatalogoPelis().buscarPeli(unaPelicula);
@@ -66,6 +79,14 @@ public class CatalogoActores {
 			} else System.out.println("La pelicula introducida no existe");
 	}
 	
+//	public void listaActores(){
+//		//muestra la lista de actores
+//		Iterator<Actor> itr = listaA.values().iterator();
+//		while (itr.hasNext()){
+//			Actor actor = (Actor)itr.next();
+//			System.out.println(actor.getNombre());
+//		}
+//	}
 	
 	public void CargarDatosFichero() {
 		try {
@@ -116,13 +137,6 @@ public class CatalogoActores {
 		
 
 	}
-
-	public void ordenarActores() {
-		//hay que hacer
-		
-	}
-
-
 
 
 }

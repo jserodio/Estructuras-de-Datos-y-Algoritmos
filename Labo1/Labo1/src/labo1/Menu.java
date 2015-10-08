@@ -147,7 +147,7 @@ public class Menu {
 				
 			case 6: //Obtener una lista de actores ordenada
 				System.out.println("Se va a ordenar la lista.");
-				CatalogoActores.getCatalogoActores().ordenarActores(); //metodo vacio todavia <-------------PENDIENTE
+				CatalogoActores.getCatalogoActores().ordenarActores();
 				break;
 
 			case 7: //Hacer una donacion a una pelicula 
