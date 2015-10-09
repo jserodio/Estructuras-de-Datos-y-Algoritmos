@@ -19,7 +19,9 @@ public class Menu {
 		//bienvenida
 		System.out.println("¡Bienvenido usuario! Cargando datos...");
 		//cargamos los datos
+		Stopwatch timer = new Stopwatch();
 		CatalogoActores.getCatalogoActores().CargarDatosFichero();
+		System.out.println(timer.elapsedTime()	); 
 		
 		do { //repetimos el bucle si (num != 0) 
 		//imprimir por pantalla el menu de usuario
@@ -149,7 +151,9 @@ public class Menu {
 				
 			case 6: //Obtener una lista de actores ordenada
 				System.out.println("Se va a ordenar la lista.");
+				Stopwatch time = new Stopwatch();
 				CatalogoActores.getCatalogoActores().ordenarActores();
+				System.out.println(time.elapsedTime());
 				break;
 
 			case 7: //Hacer una donacion a una pelicula 
@@ -171,7 +175,7 @@ public class Menu {
 					String linea = UnActor.getNombre();
 					Iterator<Pelicula> itr = UnActor.getListaPelis().values().iterator();
 					while (itr.hasNext()) { //Posibilidad de sacar este while fuera y optimizar. ? idea.
-						linea = linea + " \\ " + itr.next().getTitulo();
+						linea = linea + " ### " + itr.next().getTitulo();
 					}
 					writer.println(linea);
 				}

@@ -94,7 +94,7 @@ public class CatalogoActores {
 	
 	public void CargarDatosFichero() {
 		try {
-			Scanner entrada = new Scanner(new FileReader("src/archivo/10-actors.txt"));
+			Scanner entrada = new Scanner(new FileReader("src/archivo/actors-movies-2015-2016"));
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
@@ -103,7 +103,7 @@ public class CatalogoActores {
 				}
 				String f[] = linea.split(" ### ");
 				String actor = f[0];
-				System.out.println(actor);
+			//	System.out.println(actor);
 				Actor act= new Actor(actor);
 				CatalogoActores.getCatalogoActores().anadirActor(act); //añado el actor, al catalogo
 				for (int i = 1; i < f.length; i++) {
@@ -128,18 +128,18 @@ public class CatalogoActores {
 			}
 			
 			entrada.close();
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		
 		//CatalogoActores.getCatalogoActrices().getLista().ordenarActores();
 		//CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
 	
 
 		//CatalogoActores.getCatalogoActores().getLista().ordenarActores();
 		
-
 	}
 
 
