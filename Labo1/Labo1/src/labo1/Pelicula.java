@@ -13,7 +13,7 @@ public class Pelicula {
 	public Pelicula(String pTitulo) {
 		this.listaA = new HashMap<String, Actor>();
 		this.titulo = pTitulo;
-	
+		this.donaciones = 0;
 	}
 
 	public String getTitulo() {
@@ -29,7 +29,11 @@ public class Pelicula {
 		}
 		
 	}
-
+	
+	public void eliminarActor(Actor unActor) {
+		this.listaA.remove(unActor.getNombre(), unActor);
+	}
+	
 
 	public void obtenerActores(){
 		//Esto es el metodo para mostrar todos los actores de la pelicula
