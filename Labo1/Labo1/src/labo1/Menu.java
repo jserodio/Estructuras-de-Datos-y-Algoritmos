@@ -12,6 +12,7 @@ public class Menu {
 	static Actor unActor = null;
 	static String pNombre;
 	static int num;
+	static Pelicula pPeli;
 
 	public static void main(String[] args) throws IOException {
 		//bienvenida
@@ -153,6 +154,11 @@ public class Menu {
 			case 7: //Hacer una donacion a una pelicula 
 				System.out.println("Introduzca el nombre de la pelicula:");
 				pNombre = br.readLine();
+				System.out.println("Introduzca la cantidad deseada:");
+				num = Integer.parseInt(br.readLine());
+				pPeli =CatalogoPelis.getCatalogoPelis().buscarPeli(pNombre);
+				pPeli.anadirDonaciones(num);
+				System.out.println("La pelicula " + pPeli.getTitulo() + " tiene " + pPeli.getDonaciones() + " euros recaudados.");
 				//																				<---------------------PENDIENTE
 				break;
 		

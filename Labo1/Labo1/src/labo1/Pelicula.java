@@ -8,6 +8,7 @@ public class Pelicula {
 
 	private String titulo;
 	private HashMap<String, Actor> listaA;
+	private int donaciones;
 
 	public Pelicula(String pTitulo) {
 		this.listaA = new HashMap<String, Actor>();
@@ -38,5 +39,13 @@ public class Pelicula {
 			System.out.println(actor.getNombre());
 		}
 	}
+	
+	public void anadirDonaciones(int dDinero){
+		this.donaciones = this.donaciones + dDinero;
+	}
 
+	public int getDonaciones(){
+		return this.donaciones;
+	}
+		
 }
