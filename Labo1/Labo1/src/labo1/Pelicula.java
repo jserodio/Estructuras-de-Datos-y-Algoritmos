@@ -29,7 +29,7 @@ public class Pelicula {
 		
 	}
 
-	
+
 	public void obtenerActores(){
 		//Esto es el metodo para mostrar todos los actores de la pelicula
 		Iterator<Entry<String, Actor>> itr = listaA.entrySet().iterator();
