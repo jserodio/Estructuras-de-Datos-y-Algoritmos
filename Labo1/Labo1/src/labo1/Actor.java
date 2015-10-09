@@ -23,6 +23,9 @@ public class Actor implements Comparable<Actor>{
 		return this.listaP.size();
 	}
 	
+	public HashMap<String, Pelicula> getListaPelis(){
+		return this.listaP;
+	}
 	
 	public int compareTo(Actor unaActor) { //sirve para  mirar si un actor es igual  a  uno que introduzcamos nosotros
 		return this.getNombre().compareTo(unaActor.nombre);
@@ -40,7 +43,7 @@ public class Actor implements Comparable<Actor>{
 	}
 	
 	public void obtenerPelis(){
-		Iterator<Entry<String, Pelicula>> itr = listaP.entrySet().iterator();
+		Iterator<Pelicula> itr = listaP.values().iterator();
 		boolean sinpelis = true;
 		while (itr.hasNext()){
 			sinpelis = false;
