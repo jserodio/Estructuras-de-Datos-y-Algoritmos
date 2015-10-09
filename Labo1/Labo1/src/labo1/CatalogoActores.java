@@ -26,7 +26,11 @@ public class CatalogoActores {
 		return miCatalogoActores;
 	}
 	
-
+	public HashMap<String,Actor> getListaActores(){
+		return this.listaA;
+	}
+	
+	
 	public boolean estaActor(String pActor) {
 
 		//Si encuentra un actor con ese nombre, verdad; si no, mentiro!

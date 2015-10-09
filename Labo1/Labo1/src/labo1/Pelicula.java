@@ -8,7 +8,7 @@ public class Pelicula {
 
 	private String titulo;
 	private HashMap<String, Actor> listaA;
-	private int donaciones;
+	private float donaciones;
 
 	public Pelicula(String pTitulo) {
 		this.listaA = new HashMap<String, Actor>();
@@ -40,11 +40,15 @@ public class Pelicula {
 		}
 	}
 	
-	public void anadirDonaciones(int dDinero){
+	public void anadirDonaciones(float dDinero){
+		if (dDinero>=0){
 		this.donaciones = this.donaciones + dDinero;
+		} else {
+			System.out.println("La cantidad añadida no es correcta.");
+		}
 	}
 
-	public int getDonaciones(){
+	public float getDonaciones(){
 		return this.donaciones;
 	}
 		
