@@ -180,7 +180,7 @@ public class Menu {
 					writer.println(linea);
 				}
 				writer.close();			
-				System.out.println("Se a guardar el nuevo catalogo en un txt.");
+				System.out.println("Se ha guardado el nuevo catalogo en un txt.");
 				break;
 				
 			case 9: //Salir del menu
