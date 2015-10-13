@@ -15,7 +15,7 @@ public class CatalogoActores {
 
 	// constructora
 	private CatalogoActores() {
-		this.listaA = new HashMap<>();
+		this.listaA = new HashMap<String, Actor>();
 	}
 
 	// getters y setters
@@ -26,7 +26,11 @@ public class CatalogoActores {
 		return miCatalogoActores;
 	}
 	
-
+	public HashMap<String,Actor> getListaActores(){
+		return this.listaA;
+	}
+	
+	
 	public boolean estaActor(String pActor) {
 
 		//Si encuentra un actor con ese nombre, verdad; si no, mentiro!
@@ -99,7 +103,7 @@ public class CatalogoActores {
 				}
 				String f[] = linea.split(" ### ");
 				String actor = f[0];
-				System.out.println(actor);
+			//	System.out.println(actor);
 				Actor act= new Actor(actor);
 				CatalogoActores.getCatalogoActores().anadirActor(act); //añado el actor, al catalogo
 				for (int i = 1; i < f.length; i++) {
@@ -124,18 +128,18 @@ public class CatalogoActores {
 			}
 			
 			entrada.close();
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		
 		//CatalogoActores.getCatalogoActrices().getLista().ordenarActores();
 		//CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
 	
 
 		//CatalogoActores.getCatalogoActores().getLista().ordenarActores();
 		
-
 	}
 
 

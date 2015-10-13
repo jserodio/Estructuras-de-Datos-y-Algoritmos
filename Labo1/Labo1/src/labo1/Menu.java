@@ -13,12 +13,15 @@ public class Menu {
 	static String pNombre;
 	static int num;
 	static Pelicula pPeli;
-
+	static float donaciones;
+	
 	public static void main(String[] args) throws IOException {
 		//bienvenida
 		System.out.println("¡Bienvenido usuario! Cargando datos...");
 		//cargamos los datos
+		Stopwatch timer = new Stopwatch();
 		CatalogoActores.getCatalogoActores().CargarDatosFichero();
+		System.out.println(timer.elapsedTime()	); 
 		
 		do { //repetimos el bucle si (num != 0) 
 		//imprimir por pantalla el menu de usuario
@@ -148,34 +151,36 @@ public class Menu {
 				
 			case 6: //Obtener una lista de actores ordenada
 				System.out.println("Se va a ordenar la lista.");
+				Stopwatch time = new Stopwatch();
 				CatalogoActores.getCatalogoActores().ordenarActores();
+				System.out.println(time.elapsedTime());
 				break;
 
 			case 7: //Hacer una donacion a una pelicula 
 				System.out.println("Introduzca el nombre de la pelicula:");
 				pNombre = br.readLine();
 				System.out.println("Introduzca la cantidad deseada:");
-				num = Integer.parseInt(br.readLine());
+				donaciones = Float.parseFloat(br.readLine());
 				pPeli =CatalogoPelis.getCatalogoPelis().buscarPeli(pNombre);
-				pPeli.anadirDonaciones(num);
+				pPeli.anadirDonaciones(donaciones);
 				System.out.println("La pelicula " + pPeli.getTitulo() + " tiene " + pPeli.getDonaciones() + " euros recaudados.");
 				//																				<---------------------PENDIENTE
 				break;
 		
 			case 8: //Guardar datos de peliculas a un archivo
-//				PrintWriter writer = new PrintWriter("src/archivo/copiaLista2.txt");
-//				Iterator<Actor> it = CatalogoActores.getCatalogoActores().getLista().getIterador();
-//				while (it.hasNext()) {
-//					Actor UnActor = it.next();
-//					String linea = UnActor.getNombre();
-//					Iterator<Pelicula> itr = UnActor.getListaPelis().getIterador();
-//					while (itr.hasNext()) { //Posibilidad de sacar este while fuera y optimizar. ? idea.
-//						linea = linea + " \\ " + itr.next().getTitulo();
-//					}
-//					writer.println(linea);
-//				}
-//				writer.close();			
-//				System.out.println("Se a guardar el nuevo catalogo en un txt.");
+				PrintWriter writer = new PrintWriter("src/archivo/copiaLista2.txt");
+				Iterator<Actor> it = CatalogoActores.getCatalogoActores().getListaActores().values().iterator();
+				while (it.hasNext()) {
+					Actor UnActor = it.next();
+					String linea = UnActor.getNombre();
+					Iterator<Pelicula> itr = UnActor.getListaPelis().values().iterator();
+					while (itr.hasNext()) { //Posibilidad de sacar este while fuera y optimizar. ? idea.
+						linea = linea + " ### " + itr.next().getTitulo();
+					}
+					writer.println(linea);
+				}
+				writer.close();			
+				System.out.println("Se ha guardado el nuevo catalogo en un txt.");
 				break;
 				
 			case 9: //Salir del menu
