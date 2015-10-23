@@ -11,9 +11,13 @@ public class Persona {
 		dni = pDni;
 		next = null;
 	}
+	
 	public void setNext(Persona next){ this.next = next;}
+	
 	public void print(){
 		//escribe todo
+		System.out.println("Dni " + this.dni);
+		System.out.println("Nombre " + this.name);
 	}
 	@Override
 	public int hashCode() {

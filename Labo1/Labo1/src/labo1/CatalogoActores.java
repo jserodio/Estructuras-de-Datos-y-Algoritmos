@@ -70,7 +70,7 @@ public class CatalogoActores {
 		SortedSet<String> sortedSet = new TreeSet<String>(listaA.keySet());
 		Iterator<String> itrOrdenada = sortedSet.iterator();
 		while (itrOrdenada.hasNext()){
-			String actor = itrOrdenada.next();
+			String actor = itrOrdenada.next(); // apunta al primero
 			System.out.println(actor);
 		}
 	}
