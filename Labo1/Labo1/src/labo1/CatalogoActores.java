@@ -30,7 +30,6 @@ public class CatalogoActores {
 		return this.listaA;
 	}
 	
-	
 	public boolean estaActor(String pActor) {
 
 		//Si encuentra un actor con ese nombre, verdad; si no, mentiro!
@@ -66,8 +65,11 @@ public class CatalogoActores {
 	}
 	
 	public void ordenarActores() {
-		//Utilizo treeSet para crear un sorted set (una lista ordenada, de la key)
+		//este metodo ordena el hashmap de actores e imprime los resultados
+		//pre: el hashmap "listaA" no está ordenado
+		//post: se imprime por pantalla el resultado de la lista de actores ordenada.
 		SortedSet<String> sortedSet = new TreeSet<String>(listaA.keySet());
+		//Utilizo treeSet para crear un sorted set (una lista ordenada, de la key)
 		Iterator<String> itrOrdenada = sortedSet.iterator();
 		while (itrOrdenada.hasNext()){
 			String actor = itrOrdenada.next(); // apunta al primero
@@ -85,6 +87,8 @@ public class CatalogoActores {
 	
 //	public void listaActores(){
 //		//muestra la lista de actores
+//		//pre: Contiene al menos un actor
+//		//post: Imprime la lista de los actores.
 //		Iterator<Actor> itr = listaA.values().iterator();
 //		while (itr.hasNext()){
 //			Actor actor = (Actor)itr.next();
@@ -94,8 +98,12 @@ public class CatalogoActores {
 	
 	public void CargarDatosFichero() {
 		//Cargamos los datos del fichero
-		//pre:
-		//post
+		//pre: Archivo contiene datos. Existe al menos un actor y una pelicula.
+		//post: Se cargan los datos del fichero en:
+		//		"Catalogo de Actores"
+		//		"Catalogo de Peliculas"
+		//		"Catalogo de Actores dada una Pelicula"
+		//		"Catologo de Peliculas dado un Actor"
 		try {
 			Scanner entrada = new Scanner(new FileReader("src/archivo/10-actors.txt"));
 			String linea;
@@ -106,7 +114,7 @@ public class CatalogoActores {
 				}
 				String f[] = linea.split(" ### ");
 				String actor = f[0];
-				Actor act= new Actor(actor);
+				Actor act= new Actor(actor);//una instancia del objeto Actor por cada nombre.
 				CatalogoActores.getCatalogoActores().anadirActor(act); //añado el actor, al catalogo
 				for (int i = 1; i < f.length; i++) {				
 					String titulo=f[i];
@@ -115,20 +123,10 @@ public class CatalogoActores {
 					p.anadirActor(act);//añade actor actual, a la lista de actores, de la pelicula dada
 				}
 			}
-			
-			entrada.close();
-			
-			
+			entrada.close();	
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		//CatalogoActores.getCatalogoActrices().getLista().ordenarActores();
-		//CatalogoPelis.getCatalogoPelis().listaPeliCadaActor();
-	
-
-		//CatalogoActores.getCatalogoActores().getLista().ordenarActores();
-		
 	}
 
 

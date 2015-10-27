@@ -41,12 +41,6 @@ public class CatalogoPelis {
 			this.listaP.put(p.getTitulo(), p);
 			return p;
 		}
-
-			
-//		if(!this.listaP.containsKey(p.getTitulo())){
-//			this.listaP.put(p.getTitulo(), p);
-//		}
-//		return p;
 	}
 	
 	public void  listaPeliCadaActor(String unActor){ //este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
