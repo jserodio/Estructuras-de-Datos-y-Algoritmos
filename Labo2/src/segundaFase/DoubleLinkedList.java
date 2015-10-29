@@ -50,8 +50,18 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T remove(T elem) {
 	//Elimina un elemento concreto de la lista
-		// Precondición:
-		// Postcondición: 
+		// Precondición: la lista tiene al menos un elemento
+		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
+		//				  la estructura tiene un nodo menos.
+		Node<T> nodoAuxiliar = first;
+		T auxiliar = null;
+		while(nodoAuxiliar.data != elem)
+			nodoAuxiliar = nodoAuxiliar.next; // Avanzamos
+		auxiliar = nodoAuxiliar.data;
+		nodoAuxiliar.prev.next = nodoAuxiliar.next; // El nodo anterior apunta, al nodo siguiente
+		nodoAuxiliar.next.prev = nodoAuxiliar.prev; // El nodo siguiente, apunta al nodo anterior.
+		// El nodo actual, desaparece.
+		return auxiliar;
 	}
 
 	public T first() {
