@@ -29,11 +29,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T removeFirst() {
 	// Elimina el primer elemento de la lista
-        // Precondición: la lista tiene al menos un elemento
+        // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
+		if (isEmpty())
+	          return null;
+		
 		T auxiliar = first.data; // Guardamos el data del primer nodo en el auxiliar
-		first = first.next; // Hacemos que el primer nodo apunte al segundo
-		first.prev = null; // Hacemos que el nuevo primero, que apuntaba al antiguo first, apunte a null (el primero no debe tener previo)
+		this.count--; // La lista va a tener un elemento menos.
+		
+		if (first.next == null){ // Si solo hay 1 elemento
+			first = null;
+		} else{
+			first = first.next; // Hacemos que el primer nodo apunte al segundo
+			first.prev = null; // Hacemos que el nuevo primero, que apuntaba al antiguo first, apunte a null (el primero no debe tener previo)
+		}
 		return auxiliar; // Devolver la información eliminada
 	}
 
