@@ -68,24 +68,28 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T remove(T elem) {
 	//Elimina un elemento concreto de la lista
-		// Precondición: la lista tiene al menos un elemento
+		// Precondición: ninguno
 		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
 		//				  la estructura tiene un nodo menos. si no encuentra el valor devuelve null
-		Node<T> current = first;
+		if (isEmpty())
+	          return null;
+		
+		Node<T> current = first; // Navegamos con el puntero current	
 		T auxiliar = null;
+		
 		while((current != null) && !elem.equals(current.data))
 			current = current.next; // Avanzamos
-		if (current == null)
-			// current ha llegado al final. Devolvemos null.
-			return auxiliar;
-		else{
+		
+		if (current != null){
 			// Si current no es null, ha encontrado el elem
 			auxiliar = current.data; // Guardamos la referencia
 			current.prev.next = current.next; // El nodo anterior apunta, al nodo siguiente
 			current.next.prev = current.prev; // El nodo siguiente, apunta al nodo anterior.
 			// El nodo actual, desaparece.
-			return auxiliar;
 		}
+		
+		return auxiliar;
+		
 	}
 
 	public T first() {
@@ -107,7 +111,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		      if (isEmpty())
 		          return false;
 
-		      Node<T> current = first; // Empieza con el segundo elemento
+		      Node<T> current = first;  // Navegamos con el puntero current
 
 		      while ((current != null) && !elem.equals(current.data)) 
 		            current = current.next;
