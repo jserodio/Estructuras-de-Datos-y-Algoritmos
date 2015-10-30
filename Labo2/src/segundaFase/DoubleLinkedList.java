@@ -29,11 +29,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T removeFirst() {
 	// Elimina el primer elemento de la lista
-        // Precondición: la lista tiene al menos un elemento
+        // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
+		if (isEmpty())
+	          return null;
+		
 		T auxiliar = first.data; // Guardamos el data del primer nodo en el auxiliar
-		first = first.next; // Hacemos que el primer nodo apunte al segundo
-		first.prev = null; // Hacemos que el nuevo primero, que apuntaba al antiguo first, apunte a null (el primero no debe tener previo)
+		this.count--; // La lista va a tener un elemento menos.
+		
+		if (first.next == null){ // Si solo hay 1 elemento
+			first = null;
+		} else{
+			first = first.next; // Hacemos que el primer nodo apunte al segundo
+			first.prev = null; // Hacemos que el nuevo primero, que apuntaba al antiguo first, apunte a null (el primero no debe tener previo)
+		}
 		return auxiliar; // Devolver la información eliminada
 	}
 
@@ -52,16 +61,22 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	//Elimina un elemento concreto de la lista
 		// Precondición: la lista tiene al menos un elemento
 		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
-		//				  la estructura tiene un nodo menos.
-		Node<T> nodoAuxiliar = first;
+		//				  la estructura tiene un nodo menos. si no encuentra el valor devuelve null
+		Node<T> current = first;
 		T auxiliar = null;
-		while(nodoAuxiliar.data != elem)
-			nodoAuxiliar = nodoAuxiliar.next; // Avanzamos
-		auxiliar = nodoAuxiliar.data;
-		nodoAuxiliar.prev.next = nodoAuxiliar.next; // El nodo anterior apunta, al nodo siguiente
-		nodoAuxiliar.next.prev = nodoAuxiliar.prev; // El nodo siguiente, apunta al nodo anterior.
-		// El nodo actual, desaparece.
-		return auxiliar;
+		while((current != null) && !elem.equals(current.data))
+			current = current.next; // Avanzamos
+		if (current == null)
+			// current ha llegado al final. Devolvemos null.
+			return auxiliar;
+		else{
+			// Si current no es null, ha encontrado el elem
+			auxiliar = current.data; // Guardamos la referencia
+			current.prev.next = current.next; // El nodo anterior apunta, al nodo siguiente
+			current.next.prev = current.prev; // El nodo siguiente, apunta al nodo anterior.
+			// El nodo actual, desaparece.
+			return auxiliar;
+		}
 	}
 
 	public T first() {
@@ -91,11 +106,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                       else return elem.equals(current.data);
 		   }
 
-	public T find(T elem) {
+	public T find(T elem) {	
+	//Determina si la lista contiene un elemento concreto, y develve su referencia
+	//null en caso de que no esté
+		// Precondicion: Ninguna
+		// Postcondicion: Devuelve su referencia
+		if (isEmpty())
+	          return null;
 		
-	//Determina si la lista contiene un elemento concreto, y develve su referencia, null en caso de que no esté
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-		return elem;
+		Node<T> current = first;
+		
+		while ((current != null) && !elem.equals(current.data))
+			current = current.next;
+		if (current == null) return null;
+			else	return current.data;
 	}
 
 	public boolean isEmpty() 
@@ -111,12 +135,37 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	   // an iterator, doesn't implement remove() since it's optional 
 	   private class ListIterator implements Iterator<T> { 
-
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+		   private Node<T> actual = first;
+		   private int contador = count * 2;
+		   public boolean hasNext(){
+		   	if(contador!=0){
+		   		contador--;
+		   		return true;
+		   	}else{
+		   		return false;
+		   	}
+		   	}
+		@Override
+		public T next() {
+			if(!hasNext()){
+				throw new NoSuchElementException();	
+			}else{
+				T datos= actual.data;
+				actual=actual.next;
+				return datos;
+			}
+		}
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+			
+		}
 
 
 
-	   } // private class
+	   // private class
 		
 		
          public void visualizarNodos() {
