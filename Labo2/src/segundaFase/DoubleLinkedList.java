@@ -56,9 +56,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		T auxiliar = last.data; // Guardar el data del último nodo
 		this.count--; // La lista va a tener un elemento menos
 		
-		if ()
-		last = last.prev; // El penultimo ahora es el último.
-		last.next = null; // El nuevo último apuntará a null.
+		if (last.prev== null){ // Si solo hay 1 elemento
+			last = null;
+		} else{
+			last = last.prev; // El penultimo ahora es el último.
+			last.next = null; // El nuevo último apuntará a null.
+		}
 		return auxiliar;
    }
 
