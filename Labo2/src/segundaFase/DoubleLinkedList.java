@@ -52,16 +52,22 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	//Elimina un elemento concreto de la lista
 		// Precondición: la lista tiene al menos un elemento
 		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
-		//				  la estructura tiene un nodo menos.
-		Node<T> nodoAuxiliar = first;
+		//				  la estructura tiene un nodo menos. si no encuentra el valor devuelve null
+		Node<T> current = first;
 		T auxiliar = null;
-		while(nodoAuxiliar.data != elem)
-			nodoAuxiliar = nodoAuxiliar.next; // Avanzamos
-		auxiliar = nodoAuxiliar.data;
-		nodoAuxiliar.prev.next = nodoAuxiliar.next; // El nodo anterior apunta, al nodo siguiente
-		nodoAuxiliar.next.prev = nodoAuxiliar.prev; // El nodo siguiente, apunta al nodo anterior.
-		// El nodo actual, desaparece.
-		return auxiliar;
+		while((current != null) && !elem.equals(current.data))
+			current = current.next; // Avanzamos
+		if (current == null)
+			// current ha llegado al final. Devolvemos null.
+			return auxiliar;
+		else{
+			// Si current no es null, ha encontrado el elem
+			auxiliar = current.data; // Guardamos la referencia
+			current.prev.next = current.next; // El nodo anterior apunta, al nodo siguiente
+			current.next.prev = current.prev; // El nodo siguiente, apunta al nodo anterior.
+			// El nodo actual, desaparece.
+			return auxiliar;
+		}
 	}
 
 	public T first() {
@@ -91,11 +97,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                       else return elem.equals(current.data);
 		   }
 
-	public T find(T elem) {
+	public T find(T elem) {	
+	//Determina si la lista contiene un elemento concreto, y develve su referencia
+	//null en caso de que no esté
+		// Precondicion: Ninguna
+		// Postcondicion: Devuelve su referencia
+		if (isEmpty())
+	          return null;
 		
-	//Determina si la lista contiene un elemento concreto, y develve su referencia, null en caso de que no esté
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-		return elem;
+		Node<T> current = first;
+		
+		while ((current != null) && !elem.equals(current.data))
+			current = current.next;
+		if (current == null) return null;
+			else	return current.data;
 	}
 
 	public boolean isEmpty() 
