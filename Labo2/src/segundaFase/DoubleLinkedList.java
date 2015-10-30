@@ -165,7 +165,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 
 
-	   // private class
+	   } // private class
 		
 		
          public void visualizarNodos() {
