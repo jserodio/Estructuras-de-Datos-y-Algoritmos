@@ -135,19 +135,40 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	public int size() 
 	//Determina el número de elementos de la lista
 	{ return count;};
+
 	
 	/** Return an iterator to the stack that iterates through the items . */ 
-	   public Iterator<T> iterator() { return new ListIterator(); } 
+	public Iterator<T> iterator() { return new ListIterator(); } 
 
 	   // an iterator, doesn't implement remove() since it's optional 
 	   private class ListIterator implements Iterator<T> { 
 
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
-
-
-	   } // private class
-		
+		   private Node<T> actual = first;
+		   private int contador = count * 2;
+		   public boolean hasNext(){
+		   	if(contador!=0){
+		   		contador--;
+		   		return true;
+		   	}else{
+		   		return false;
+		   	}
+		   	}
+		@Override
+		public T next() {
+			if(!hasNext()){
+				throw new NoSuchElementException();	
+			}else{
+				T datos= actual.data;
+				actual=actual.next;
+				return datos;
+			}
+		}
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+			
+		}
 		
          public void visualizarNodos() {
 			System.out.println(this.toString());
@@ -165,3 +186,4 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		}
 
 }
+
