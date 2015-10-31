@@ -125,7 +125,11 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	//null en caso de que no esté
 		// Precondicion: Ninguna
 		// Postcondicion: Devuelve su referencia
-		if (isEmpty())
+				// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+		/* Este es el codigo de Jose, mañana decidimos cual esta bien ya que
+		 * no lo tenemos del todo seguro, esperaremos a verlo cuando mikel nos
+		 * pase codigo o nos ayude.
+		 * if (isEmpty())
 	          return null;
 		
 		Node<T> current = first;
@@ -134,6 +138,37 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			current = current.next;
 		if (current == null) return null;
 			else	return current.data;
+		 * 
+		 */
+		
+		
+		
+				boolean encontrado = false;
+				T valor = null;
+				//int ref = 0;
+				if(this.isEmpty()){
+					System.out.println("La lista esta vacia.");
+				} else {
+					//Mirar primero a ver si el elemento a buscar es el ultimo
+					if (last.data.equals(elem)){
+						encontrado = true;
+						valor = last.data;
+					//	ref = count-1;
+					} else {
+							Node<T> actual = first;
+							while((actual != last) && (!encontrado)){
+								if(actual.data.equals(elem)){
+									encontrado = true;
+									valor = actual.data;
+									//ref = ref+1;
+								} else {
+									actual = actual.next;
+								}
+							}	
+						}
+				}
+				return valor;
+			
 	}
 
 	public boolean isEmpty() 
