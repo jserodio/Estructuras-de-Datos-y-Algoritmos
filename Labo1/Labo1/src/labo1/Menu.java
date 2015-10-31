@@ -16,13 +16,14 @@ public class Menu {
 	static float donaciones;
 	
 	public static void main(String[] args) throws IOException {
-		//bienvenida
+		//Menu de usuario
+		//pre: El usuario solo podrá introducir números enteros.
+		//post: Imprime un menú y el usuario interactua con él.
 		System.out.println("¡Bienvenido usuario! Cargando datos...");
 		//cargamos los datos
 		Stopwatch timer = new Stopwatch();
 		CatalogoActores.getCatalogoActores().CargarDatosFichero();
-		System.out.println(timer.elapsedTime()	); 
-		
+		System.out.println(timer.elapsedTime()); 
 		do { //repetimos el bucle si (num != 0) 
 		//imprimir por pantalla el menu de usuario
 		System.out.println("\nIntroduzca la opcion deseada\n");
@@ -180,7 +181,7 @@ public class Menu {
 					writer.println(linea);
 				}
 				writer.close();			
-				System.out.println("Se a guardar el nuevo catalogo en un txt.");
+				System.out.println("Se ha guardado el nuevo catalogo en un txt.");
 				break;
 				
 			case 9: //Salir del menu
