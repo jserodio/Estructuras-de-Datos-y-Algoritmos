@@ -31,6 +31,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	// Elimina el primer elemento de la lista
         // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
+		// Coste: C -> O(C). Constante.
 		if (isEmpty())
 	          return null;
 		
