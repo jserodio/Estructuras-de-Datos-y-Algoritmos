@@ -9,13 +9,13 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 	public void addToFront(T elem) {
 	// añade un elemento al comienzo
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-		Node<T> añadido = new Node<T>(elem);
-		Node<T> primero=first;
-		if (this.isEmpty()){
-			first = añadido;
+		elemento = new Node<T>(elem);
+		if (this.isEmpty()){ // Si lista vacia
+			first = elemento; // puntero first será elemento
 		}else{
-			añadido.next=primero;
-			
+			first.prev=elemento; //el puntero previo al first actual, apunta el nuevo elemento
+			elemento.next=first; // el puntero next de elemento, apuntará a first (que será segundo)
+			first=elemento; // el nuevo first será mi elemento
 		}
 		count++;
 	}
@@ -26,8 +26,6 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 		elemento = new Node<T>(elem);
 		if (isEmpty()) { // miro a ver si esta la lista vacia y si es asi meto el dato
 			first = elemento; //añado el elemento y listo
-			elemento.next = null; //apunto a null aunque tal vez sea irrelevante
-			last = elemento; //hago que el puntero last tambien apunte al nuevo elemento ya que solo hay ese
 		} else {
 			last.next = elemento; //Apunto con el next del last al nuevo nodo
 			elemento.prev = last; //Apunto con el prev del nuevo nodo a last
