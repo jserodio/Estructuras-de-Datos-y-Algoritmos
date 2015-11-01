@@ -1,11 +1,21 @@
 package segundaFase;
 
+import segundaFase.Node;
+
 public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements UnorderedListADT<T> {
 	
 	public void addToFront(T elem) {
 	// añade un elemento al comienzo
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
+		Node<T> añadido = new Node<T>(elem);
+		Node<T> primero=first;
+		if (this.isEmpty()){
+			first = añadido;
+		}else{
+			añadido.next=primero;
+			
+		}
+		count++;
 	}
 
 	public void addToRear(T elem) {
