@@ -51,6 +51,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	// Elimina el último elemento de la lista
         // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
+		// Coste: O(n). Lineal 
 		if (isEmpty())
 			return null;
 		
@@ -72,6 +73,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		// Precondición: ninguno
 		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
 		//				  la estructura tiene un nodo menos. si no encuentra el valor devuelve null
+		// Coste: O(n). Lineal 
 		if (isEmpty())
 	          return null;
 		
@@ -125,11 +127,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	//null en caso de que no esté
 		// Precondicion: Ninguna
 		// Postcondicion: Devuelve su referencia
-				// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-		/* Este es el codigo de Jose, mañana decidimos cual esta bien ya que
-		 * no lo tenemos del todo seguro, esperaremos a verlo cuando mikel nos
-		 * pase codigo o nos ayude.
-		 * if (isEmpty())
+		// Coste: lineal o(n)
+	
+		if (isEmpty())
 	          return null;
 		
 		Node<T> current = first;
@@ -138,10 +138,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			current = current.next;
 		if (current == null) return null;
 			else	return current.data;
-		 * 
-		 */
+
 		
-		
+		/*
 		
 				boolean encontrado = false;
 				T valor = null;
@@ -167,7 +166,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 						}
 				}
 				return valor;
-			
+			*/
 	}
 
 	public boolean isEmpty() 
