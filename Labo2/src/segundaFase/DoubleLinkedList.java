@@ -29,7 +29,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T removeFirst() {
 	// Elimina el primer elemento de la lista
-        // Precondición: ninguna
+	    // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
 		// Coste: O(C). Constante.
 		if (isEmpty())
@@ -49,7 +49,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T removeLast() {
 	// Elimina el último elemento de la lista
-        // Precondición: ninguna
+	    // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
 		// Coste: O(C). Constante
 		if (isEmpty())
@@ -63,9 +63,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		} else{
 			last = last.prev; // El penultimo ahora es el último.
 			last.next = null; // El nuevo último apuntará a null.
-		}
-		return auxiliar;
-   }
+			}
+			return auxiliar;
+	   }
 
 
 	public T remove(T elem) {
@@ -73,7 +73,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		// Precondición: ninguno
 		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
 		//				  la estructura tiene un nodo menos. si no encuentra el valor devuelve null
-		// Coste: O(C). Constante
+		// Coste: O(n). Lineal
 		if (isEmpty())
 	          return null;
 		
