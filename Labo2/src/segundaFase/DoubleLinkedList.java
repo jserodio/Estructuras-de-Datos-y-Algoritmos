@@ -29,9 +29,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T removeFirst() {
 	// Elimina el primer elemento de la lista
-	    // Precondición: ninguna
+        // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
-		// Coste: O(C). Constante.
+		// Coste: C -> O(C). Constante.
 		if (isEmpty())
 	          return null;
 		
@@ -49,9 +49,8 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	public T removeLast() {
 	// Elimina el último elemento de la lista
-	    // Precondición: ninguna
+        // Precondición: ninguna
 		// Postcondición: devuelve el valor eliminado
-		// Coste: O(C). Constante
 		if (isEmpty())
 			return null;
 		
@@ -63,9 +62,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		} else{
 			last = last.prev; // El penultimo ahora es el último.
 			last.next = null; // El nuevo último apuntará a null.
-			}
-			return auxiliar;
-	   }
+		}
+		return auxiliar;
+   }
 
 
 	public T remove(T elem) {
@@ -73,7 +72,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		// Precondición: ninguno
 		// Postcondición: devuelve el valor eliminado, que almacenamos en la variable auxiliar
 		//				  la estructura tiene un nodo menos. si no encuentra el valor devuelve null
-		// Coste: O(n). Lineal
 		if (isEmpty())
 	          return null;
 		
@@ -90,7 +88,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			current.next.prev = current.prev; // El nodo siguiente, apunta al nodo anterior.
 			// El nodo actual, desaparece.
 		}
-		
+		count--;
 		return auxiliar;
 		
 	}
@@ -127,9 +125,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	//null en caso de que no esté
 		// Precondicion: Ninguna
 		// Postcondicion: Devuelve su referencia
-		// Coste: O(n). Lineal
-		if (isEmpty())
-			return null;
+				// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+		/* Este es el codigo de Jose, mañana decidimos cual esta bien ya que
+		 * no lo tenemos del todo seguro, esperaremos a verlo cuando mikel nos
+		 * pase codigo o nos ayude.
+		 * if (isEmpty())
+	          return null;
 		
 		Node<T> current = first;
 		
@@ -137,6 +138,36 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			current = current.next;
 		if (current == null) return null;
 			else	return current.data;
+		 * 
+		 */
+		
+		
+		
+				boolean encontrado = false;
+				T valor = null;
+				//int ref = 0;
+				if(this.isEmpty()){
+					System.out.println("La lista esta vacia.");
+				} else {
+					//Mirar primero a ver si el elemento a buscar es el ultimo
+					if (last.data.equals(elem)){
+						encontrado = true;
+						valor = last.data;
+					} else {
+							Node<T> actual = first;
+							while((actual != last) && (!encontrado)){
+								if(actual.data.equals(elem)){
+									encontrado = true;
+									valor = actual.data;
+									//ref = ref+1;
+								} else {
+									actual = actual.next;
+								}
+							}	
+						}
+				}
+				return valor;
+			
 	}
 
 	public boolean isEmpty() 
@@ -155,9 +186,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	   private class ListIterator implements Iterator<T> { 
 
 		   private Node<T> actual = first;
-		   private int contador = count * 2;
+		   private int contador = count;
 		   public boolean hasNext(){
-		   	if(contador!=0){
+		   	if(contador>0){
 		   		contador--;
 		   		return true;
 		   	}else{
@@ -166,13 +197,10 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		   	}
 		@Override
 		public T next() {
-			if(!hasNext()){
-				throw new NoSuchElementException();	
-			}else{
 				T datos= actual.data;
 				actual=actual.next;
 				return datos;
-			}
+			
 		}
 		@Override
 		public void remove() {

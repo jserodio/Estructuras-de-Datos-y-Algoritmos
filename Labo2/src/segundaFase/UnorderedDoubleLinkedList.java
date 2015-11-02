@@ -29,7 +29,8 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 		// Coste: o(C). Constante
 		elemento = new Node<T>(elem);
 		if (isEmpty()) { // miro a ver si esta la lista vacia y si es asi meto el dato
-			first = elemento; //añado el elemento y listo
+			first = elemento;
+			last = elemento;//añado el elemento y listo
 		} else {
 			last.next = elemento; //Apunto con el next del last al nuevo nodo
 			elemento.prev = last; //Apunto con el prev del nuevo nodo a last

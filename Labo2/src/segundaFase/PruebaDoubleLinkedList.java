@@ -7,7 +7,6 @@ public class PruebaDoubleLinkedList {
 	
 	public static void visualizarNodos(UnorderedDoubleLinkedList<Integer> l) {
 		Iterator<Integer> it = l.iterator();
-		System.out.println();
 		while (it.hasNext()) {
 			Integer num = it.next();
 			System.out.println(num);
@@ -27,9 +26,8 @@ public class PruebaDoubleLinkedList {
 		l.addToRear(20);
 		l.addToFront(8);
 		l.remove(new Integer(7));
-
 		
-		System.out.print(" Lista ...............");
+		System.out.print(" Lista ..............." + "\n");
 		visualizarNodos(l);
 		System.out.println(" Num elementos: " + l.size());
 				
