@@ -4,14 +4,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import segundaFase.*;
+
 public class CatalogoPelis {
 	
 	
-	private HashMap<String, Pelicula> listaP;
+	//private HashMap<String, Pelicula> listaP;
 	private static CatalogoPelis miCatalogoPelis;
-
+	private static DoubleLinkedList<String> listaP;
+	
 	private CatalogoPelis() {
-		this.listaP = new HashMap<String,Pelicula>();
+		//this.listaP = new HashMap<String,Pelicula>();
+		CatalogoPelis.listaP = new DoubleLinkedList<String>();
 	}
 
 	public static CatalogoPelis getCatalogoPelis() {
@@ -22,11 +26,13 @@ public class CatalogoPelis {
 	}
 
 	public boolean existePelicula(String pPeli){
-		if (this.listaP.containsKey(pPeli))	return true; else return false;
+		//if (this.listaP.containsKey(pPeli))	return true; else return false;
+		if (CatalogoPelis.listaP.contains(pPeli)) return true; else return false;
 	}
 	
 	public Pelicula buscarPeli(String unaPelicula){
-		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
+		//return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
+		return CatalogoPelis.getCatalogoPelis().listaP.find(unaPelicula);
 	}
 	
 	public Pelicula anadirPeli(String titulo){
@@ -38,7 +44,8 @@ public class CatalogoPelis {
 			return CatalogoPelis.getCatalogoPelis().buscarPeli(titulo);
 		} else{
 			Pelicula p=new Pelicula(titulo);
-			this.listaP.put(p.getTitulo(), p);
+			//this.listaP.put(p.getTitulo(), p);
+			CatalogoPelis.listaP.
 			return p;
 		}
 	}
