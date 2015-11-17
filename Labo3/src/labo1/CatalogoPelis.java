@@ -1,5 +1,6 @@
 package labo1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -21,6 +22,19 @@ public class CatalogoPelis {
 		return miCatalogoPelis;
 	}
 
+	public ArrayList<String> getListaPelis(String unActor){
+		// Este metodo devuelve la lista de pelis
+		Actor actor = CatalogoActores.getCatalogoActores().buscarActor(unActor);
+			if (actor!= null){
+				ArrayList<String> pelis = actor.getPelis();
+				return pelis;
+			} else {
+				System.out.println("La pelicula introducida no existe");
+				return null;
+			}
+			
+	}
+	
 	public boolean existePelicula(String pPeli){
 		if (this.listaP.containsKey(pPeli))	return true; else return false;
 	}

@@ -21,7 +21,8 @@ public class GraphHash {
 		while (iterador.hasNext()){
 			Entry<String, Actor> actor = iterador.next();
 			// leemos cada actor
-			g.put
+			g.put(actor.getKey(), CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey() ));
+			// mirar metodo obtenerpelis, dentro de getListaPelis.
 			System.out.println(actor);
 		}
 		
