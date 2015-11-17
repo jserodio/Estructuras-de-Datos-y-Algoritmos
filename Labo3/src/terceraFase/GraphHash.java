@@ -1,14 +1,31 @@
 package terceraFase;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+import labo1.*;
+
 public class GraphHash {
 
 	HashMap<String, ArrayList<String>> g;
 	
-	public void crearGrafo(ListaActricesActores lActores)
+	public void crearGrafo(HashMap<String, Actor> listaA){
+		// Pre: la lista nunca está vacia
 		// Post: crea el grafo desde la lista de actores
-		//       Los nodos son nombres de actores y títulos de películas 
-           
-            // COMPLETAR CÓDIGO
+		//       Los nodos son nombres de actores y títulos de películas
+		Iterator<Entry<String, Actor>> iterador = listaA.entrySet().iterator();
+		while (iterador.hasNext()){
+			Entry<String, Actor> actor = iterador.next();
+			// leemos cada actor
+			g.put
+			System.out.println(actor);
+		}
+		
+	}
 
 	public void print(){
 		int i = 1;
