@@ -94,7 +94,7 @@ public class CatalogoActores {
 	
 	public void CargarDatosFichero() {
 		try {
-			Scanner entrada = new Scanner(new FileReader("src/archivo/actors-movies-2015-2016"));
+			Scanner entrada = new Scanner(new FileReader("src/archivo/10-actors.txt"));
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();
