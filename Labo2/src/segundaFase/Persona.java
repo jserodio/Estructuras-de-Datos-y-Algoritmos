@@ -2,7 +2,7 @@ package segundaFase;
 
 public class Persona implements Comparable<Persona> {
 	
-	// atributos
+	//atributos
 	private String name;
     private String dni;
 	
@@ -11,6 +11,7 @@ public class Persona implements Comparable<Persona> {
 		dni = pDni;
 	}
 	
+	//getters y setters
 	public String getName() { return name; }
 
 	public void setName(String name) { this.name = name; }
@@ -34,8 +35,7 @@ public class Persona implements Comparable<Persona> {
 		} else if (!dni.equals(other.dni))
 			return false;
 		return true;
-	}
-			
+	}		
 	@Override
 	public int compareTo(Persona arg0) {
 		return name.compareToIgnoreCase(arg0.name);

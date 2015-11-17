@@ -37,9 +37,17 @@ public class CatalogoPelis {
 		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
 	}
 	
-	public void anadirPeli(Pelicula unaPeli){
-		if(!this.listaP.containsKey(unaPeli.getTitulo())){
-			this.listaP.put(unaPeli.getTitulo(), unaPeli);
+	public Pelicula anadirPeli(String titulo){
+		//añade la pelicula al catalogo en caso de no estar cargado anteriormente
+		//pre:
+		//post:
+		if(CatalogoPelis.getCatalogoPelis().existePelicula(titulo)){
+			//Si ya esta cargada esta pelicula con este nombre
+			return CatalogoPelis.getCatalogoPelis().buscarPeli(titulo);
+		} else{
+			Pelicula p=new Pelicula(titulo);
+			this.listaP.put(p.getTitulo(), p);
+			return p;
 		}
 	}
 	
