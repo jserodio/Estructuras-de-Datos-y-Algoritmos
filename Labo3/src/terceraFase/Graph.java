@@ -2,21 +2,34 @@ package terceraFase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+
+import labo1.Actor;
+import labo1.CatalogoPelis;
 
 public class Graph {
-	HashMap<String, Integer> th;
+	HashMap<String, Integer> th; // String es la key, Integer es el índice del ArrayList al que se referencia.
       String[] keys;
-      ArrayList<Integer>[] adjList;
+      ArrayList<Integer>[] adjList; // adjList[1] = [1 , 2 , 3 , 4]
 	
-	public void crearGrafo(ListaActricesActores lActores){
+	public void crearGrafo(HashMap<String, Actor> lActores){
 		// Post: crea el grafo desde la lista de actores
 		//       Los nodos son nombres de actores y títulos de películas
 		
-		// Paso 1: llenar “th”
-            // COMPLETAR CÓDIGO
-
-            // Paso 2: llenar “keys”
-		keys = new String[th.size()];
+		Iterator<Entry<String, Actor>> iterador = lActores.entrySet().iterator();
+		for (int i = 0; i<lActores.size(); i++){
+			Entry<String, Actor> actor = iterador.next();
+			// leemos cada actor
+			th.put(actor.getKey(), i ); // llenamos el th
+			// después de añadir la fila de hashmap (perro-0; gato-1)
+			// Paso 2: llenar “keys”
+			keys = new String[th.size()];
+			for (int i = 0; i < actor.getValue().; i++)
+			
+						
+		}
+         
 		for (String k: th.keySet()) keys[th.get(k)] = k;
 
             // Paso 3: llenar “adjList”
