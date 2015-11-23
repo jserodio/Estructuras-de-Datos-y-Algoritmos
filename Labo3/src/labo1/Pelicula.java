@@ -1,5 +1,6 @@
 package labo1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -54,6 +55,16 @@ public class Pelicula {
 
 	public float getDonaciones(){
 		return this.donaciones;
+	}
+
+	public ArrayList<String> getActores() {
+		// precondiciones: lista no vacia
+		// postcondiciones: devuelve un arraylist de los Values de un hashmap.
+		// Convertir valores HashMap a ArrayList
+		// coste lineal
+		ArrayList<String> listaActores = new ArrayList<String>(this.listaA.keySet());
+		return listaActores;
+
 	}
 		
 }

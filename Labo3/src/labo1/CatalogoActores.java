@@ -2,6 +2,7 @@ package labo1;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -127,6 +128,17 @@ public class CatalogoActores {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ArrayList<String> getArrayListaActores(String pPeli) {
+		//este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
+		Pelicula pelicula = CatalogoPelis.getCatalogoPelis().buscarPeli(pPeli);
+			if (pelicula!= null){
+				ArrayList<String> actores = pelicula.getActores();
+				return actores;
+			}else{
+				return null;
+			}
 	}
 
 

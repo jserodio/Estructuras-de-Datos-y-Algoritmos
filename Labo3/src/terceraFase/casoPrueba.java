@@ -14,7 +14,7 @@ public class casoPrueba {
 		HashMap<String, Actor> listaA = CatalogoActores.getCatalogoActores().getListaActores();
 		
 		// prueba para crear grafo
-		Graph grafo = new Graph();
+		GraphHash grafo = new GraphHash();
 		grafo.crearGrafo(listaA);
 	}
 
