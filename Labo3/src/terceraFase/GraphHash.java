@@ -11,17 +11,28 @@ import labo1.*;
 
 public class GraphHash {
 
+	// grafo
 	HashMap<String, ArrayList<String>> g;
 	
 	public void crearGrafo(HashMap<String, Actor> listaA){
 		// Pre: la lista nunca está vacia
 		// Post: crea el grafo desde la lista de actores
 		//       Los nodos son nombres de actores y títulos de películas
+		
 		Iterator<Entry<String, Actor>> iterador = listaA.entrySet().iterator();
+		
 		while (iterador.hasNext()){
+			// Por cada actor
 			Entry<String, Actor> actor = iterador.next();
-			// leemos cada actor
-			g.put(actor.getKey(), CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey() ));
+			// Comprobar si ya existe el nodo.
+			if (!g.containsKey(actor.getKey())) // Si no esta creado el nodo, lo crea.
+				g.put(actor.getKey(), CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey()));
+			
+			Iterador<ArrayList<String>> it =
+					CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey()).iterator();
+			
+			
+			
 			// mirar metodo obtenerpelis, dentro de getListaPelis.
 			System.out.println(actor);
 		}
