@@ -187,11 +187,6 @@ public class Menu {
 				System.out.println("Se ha guardado el nuevo catalogo en un txt.");
 				break;
 				
-			case 10: //Guardar datos de peliculas a un archivo
-				GraphHash.crearGrafo(CatalogoActores.getCatalogoActores());
-				System.out.println("Esta mierda va bien");
-				break;
-				
 			case 9: //Salir del menu
 				System.out.println("Saliendo del programa... adios! :)");
 				System.exit(num);
@@ -203,7 +198,7 @@ public class Menu {
 				break;
 			}
 			//Fin del switch case
-		}while (num != 10);
+		}while (num != 9);
 	}
 	//Fin del main
 }
