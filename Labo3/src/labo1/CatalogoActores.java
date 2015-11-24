@@ -2,6 +2,7 @@ package labo1;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -128,21 +129,18 @@ public class CatalogoActores {
 			e.printStackTrace();
 		}
 	}
+	public ArrayList<String> getArrayListaActores(String pPeli) {
+		//este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
+		Pelicula pelicula = CatalogoPelis.getCatalogoPelis().buscarPeli(pPeli);
+			if (pelicula!= null){
+				ArrayList<String> actores = pelicula.getActores();
+				return actores;
+			}else{
+				return null;
+			}
+	}
 
 	public int cuantosHay(){
-		return CatalogoActores.getCatalogoActores().listaA.size();
+		return listaA.size();
 	}
-	
-	public void devolverActorEnPos(int i){
-		//Actor actor=null;
-		int contador = 0;
-		Iterator<Actor> it = listaA.values().iterator();
-		while(it.hasNext() || contador!=i){
-			Actor actor = (Actor)it.next();
-			contador++;
-			System.out.println(actor.getNombre());
-		}
-	//	return actor;
-	}
-
 }

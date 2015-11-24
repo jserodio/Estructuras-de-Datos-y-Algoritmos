@@ -21,9 +21,17 @@ public class CatalogoPelis {
 		return miCatalogoPelis;
 	}
 
-	public boolean existePelicula(String pPeli){
-		if (this.listaP.containsKey(pPeli))	return true; else return false;
+	public HashMap<String,Pelicula> getLista(){
+		return this.listaP;
 	}
+	
+	public boolean existePelicula(String pPeli){
+		if (this.listaP.containsKey(pPeli)){	
+			return true;
+			}
+		else return false;
+		}
+	
 	
 	public Pelicula buscarPeli(String unaPelicula){
 		return CatalogoPelis.getCatalogoPelis().listaP.get(unaPelicula);
@@ -50,5 +58,16 @@ public class CatalogoPelis {
 				actor.obtenerPelis();
 			} else System.out.println("La pelicula introducida no existe");
 	}
+	
+	public void imprimirPeliculas(){
+		Iterator<Pelicula> itr = CatalogoPelis.getCatalogoPelis().getLista().values().iterator();
+		while (itr.hasNext()){
+			Pelicula peli = (Pelicula)itr.next();
+			System.out.println(peli.getTitulo());
+			peli.obtenerActores();
+			System.out.println("-----------");
+		}
+	}
+	
 
 }

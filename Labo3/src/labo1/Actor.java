@@ -59,7 +59,16 @@ public class Actor implements Comparable<Actor>{
 	public Pelicula buscarPeli(String unaPelicula){
 		return this.listaP.get(unaPelicula);
 	}
+	public ArrayList<String> getNombrePelis() {
+		// precondiciones: lista no vacia
+		// postcondiciones: devuelve un arraylist de los Values de un hashmap.
+		// Convertir valores HashMap a ArrayList
+		// coste lineal
+		ArrayList<String> listaPeliculas = new ArrayList<String>(this.listaP.keySet());
+		return listaPeliculas;
 
+	}
+	
 	public ArrayList<Pelicula> getPelis() {
 		// precondiciones: lista no vacia
 		// postcondiciones: devuelve un arraylist de los Values de un hashmap.
@@ -69,14 +78,7 @@ public class Actor implements Comparable<Actor>{
 		return listaPeliculas;
 
 	}
-	public ArrayList<String> getNombresPelis() {
-		// precondiciones: lista no vacia
-		// postcondiciones: devuelve un arraylist de los Values de un hashmap.
-		// Convertir valores HashMap a ArrayList
-		// coste lineal
-		ArrayList<String> listaPeliculas = new ArrayList<String>(this.listaP.keySet());
-		return listaPeliculas;
-
-	}
+	
+	
 	
 }

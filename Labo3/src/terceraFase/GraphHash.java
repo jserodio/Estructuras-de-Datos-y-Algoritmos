@@ -10,31 +10,30 @@ import java.util.TreeSet;
 import labo1.*;
 
 public class GraphHash {
+	// grafo
+	HashMap<String, ArrayList<String>> g = new HashMap<String, ArrayList<String>>();
 
-	static HashMap<String, ArrayList<String>> g;
-	
-	public static void crearGrafo(CatalogoActores listaA){
-		// Pre: la lista nunca está vacia
-		// Post: crea el grafo desde la lista de actores
-		//       Los nodos son nombres de actores y títulos de películasç
-		
-		listaA.devolverActorEnPos(1);
-		
-		/*for(int i=0; i<listaA.cuantosHay(); i++){ 
-			Actor a1 = listaA.devolverActorEnPos(i); 
-			if(!g.containsKey(a1)){
-				g.put(a1.getNombre(), a1.getNombresPelis());  
-				ArrayList<Pelicula> l = a1.getPelis();
-				for(int j=0;j<l.size();j++){ 
-					if(!g.containsKey(l.get(j))){
-						g.put(l.get(j).getTitulo(), l.get(j).getNombresActores());
-					}
+	public void crearGrafo(){
+//       Los nodos son nombres de actores y títulos de películas
+		CatalogoActores listaA = CatalogoActores.getCatalogoActores();
+		Iterator<Actor> itr = listaA.getListaActores().values().iterator();
+		while(itr.hasNext()){
+			Actor a1 = itr.next();
+			if(!g.containsKey(a1.getNombre())){
+				g.put(a1.getNombre(), a1.getNombrePelis());
+			}
+			ArrayList<Pelicula> l1 = a1.getPelis();
+			for(int j=0;j<l1.size();j++){
+				if(!g.containsKey(l1.get(j).getTitulo())){
+					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());
 				}
 			}
-		}*/
+		print();
+		 
+		}
 	}
-
-	/*public void print(){
+		
+		public void print(){
 		int i = 1;
 		for (String s: g.keySet()){
 			System.out.print("Element: " + i++ + " " + s + " --> ");
@@ -43,8 +42,10 @@ public class GraphHash {
 			}
 			System.out.println();
 		}
-
-	
-	public boolean estanConectados(String a1, String a2)
-            // COMPLETAR CÓDIGO*/
+	}
+	public boolean estanConectados(String a1, String a2){
+		// COMPLETAR CÓDIGO*/
+		return false;
+	}
+            
 }

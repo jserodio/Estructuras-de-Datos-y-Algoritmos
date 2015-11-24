@@ -10,12 +10,11 @@ public class casoPrueba {
 		
 		// cargamos los datos del fichero
 		CatalogoActores.getCatalogoActores().CargarDatosFichero();
-		
-		CatalogoActores listaA = CatalogoActores.getCatalogoActores();
-		
+			
 		// prueba para crear grafo
 		GraphHash grafo = new GraphHash();
-		grafo.crearGrafo(listaA);
+
+		grafo.crearGrafo();
 	}
 
 }

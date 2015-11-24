@@ -57,9 +57,12 @@ public class Pelicula {
 		return this.donaciones;
 	}
 
-	public ArrayList<String> getNombresActores() {
+	public ArrayList<String> getActores() {
+		// precondiciones: lista no vacia
+		// postcondiciones: devuelve un arraylist de los Values de un hashmap.
+		// Convertir valores HashMap a ArrayList
+		// coste lineal
 		ArrayList<String> listaActores = new ArrayList<String>(this.listaA.keySet());
 		return listaActores;
-	}
-		
+		}
 }
