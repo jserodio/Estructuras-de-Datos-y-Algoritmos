@@ -129,5 +129,20 @@ public class CatalogoActores {
 		}
 	}
 
+	public int cuantosHay(){
+		return CatalogoActores.getCatalogoActores().listaA.size();
+	}
+	
+	public void devolverActorEnPos(int i){
+		//Actor actor=null;
+		int contador = 0;
+		Iterator<Actor> it = listaA.values().iterator();
+		while(it.hasNext() || contador!=i){
+			Actor actor = (Actor)it.next();
+			contador++;
+			System.out.println(actor.getNombre());
+		}
+	//	return actor;
+	}
 
 }

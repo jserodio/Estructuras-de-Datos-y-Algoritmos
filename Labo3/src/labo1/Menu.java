@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Iterator;
 
+import terceraFase.GraphHash;
+
 public class Menu {
 
 	static boolean decision; //true será que si, false que no.
@@ -36,6 +38,7 @@ public class Menu {
 		System.out.println("> Opcion 7- Hacer una donacion a una pelicula");
 		System.out.println("> Opcion 8- Guardar datos de peliculas a un archivo");
 		System.out.println("> Opcion 9- Salir del menu");
+		System.out.println("> Opcion 10- Metodo nuevo");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String Linea = br.readLine();
 		num = Integer.parseInt(Linea);
@@ -184,6 +187,11 @@ public class Menu {
 				System.out.println("Se ha guardado el nuevo catalogo en un txt.");
 				break;
 				
+			case 10: //Guardar datos de peliculas a un archivo
+				GraphHash.crearGrafo(CatalogoActores.getCatalogoActores());
+				System.out.println("Esta mierda va bien");
+				break;
+				
 			case 9: //Salir del menu
 				System.out.println("Saliendo del programa... adios! :)");
 				System.exit(num);
@@ -195,7 +203,7 @@ public class Menu {
 				break;
 			}
 			//Fin del switch case
-		}while (num != 9);
+		}while (num != 10);
 	}
 	//Fin del main
 }

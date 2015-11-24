@@ -11,10 +11,10 @@ public class casoPrueba {
 		// cargamos los datos del fichero
 		CatalogoActores.getCatalogoActores().CargarDatosFichero();
 		
-		HashMap<String, Actor> listaA = CatalogoActores.getCatalogoActores().getListaActores();
+		CatalogoActores listaA = CatalogoActores.getCatalogoActores();
 		
 		// prueba para crear grafo
-		Graph grafo = new Graph();
+		GraphHash grafo = new GraphHash();
 		grafo.crearGrafo(listaA);
 	}
 

@@ -11,24 +11,30 @@ import labo1.*;
 
 public class GraphHash {
 
-	HashMap<String, ArrayList<String>> g;
+	static HashMap<String, ArrayList<String>> g;
 	
-	public void crearGrafo(HashMap<String, Actor> listaA){
+	public static void crearGrafo(CatalogoActores listaA){
 		// Pre: la lista nunca está vacia
 		// Post: crea el grafo desde la lista de actores
-		//       Los nodos son nombres de actores y títulos de películas
-		Iterator<Entry<String, Actor>> iterador = listaA.entrySet().iterator();
-		while (iterador.hasNext()){
-			Entry<String, Actor> actor = iterador.next();
-			// leemos cada actor
-			g.put(actor.getKey(), CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey() ));
-			// mirar metodo obtenerpelis, dentro de getListaPelis.
-			System.out.println(actor);
-		}
+		//       Los nodos son nombres de actores y títulos de películasç
 		
+		listaA.devolverActorEnPos(1);
+		
+		/*for(int i=0; i<listaA.cuantosHay(); i++){ 
+			Actor a1 = listaA.devolverActorEnPos(i); 
+			if(!g.containsKey(a1)){
+				g.put(a1.getNombre(), a1.getNombresPelis());  
+				ArrayList<Pelicula> l = a1.getPelis();
+				for(int j=0;j<l.size();j++){ 
+					if(!g.containsKey(l.get(j))){
+						g.put(l.get(j).getTitulo(), l.get(j).getNombresActores());
+					}
+				}
+			}
+		}*/
 	}
 
-	public void print(){
+	/*public void print(){
 		int i = 1;
 		for (String s: g.keySet()){
 			System.out.print("Element: " + i++ + " " + s + " --> ");
@@ -37,8 +43,8 @@ public class GraphHash {
 			}
 			System.out.println();
 		}
-	}
+
 	
 	public boolean estanConectados(String a1, String a2)
-            // COMPLETAR CÓDIGO
+            // COMPLETAR CÓDIGO*/
 }

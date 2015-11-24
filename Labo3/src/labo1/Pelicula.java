@@ -1,5 +1,6 @@
 package labo1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -54,6 +55,11 @@ public class Pelicula {
 
 	public float getDonaciones(){
 		return this.donaciones;
+	}
+
+	public ArrayList<String> getNombresActores() {
+		ArrayList<String> listaActores = new ArrayList<String>(this.listaA.keySet());
+		return listaActores;
 	}
 		
 }
