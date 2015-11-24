@@ -1,7 +1,10 @@
 package labo1;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 
 public class Actor implements Comparable<Actor>{
@@ -55,6 +58,16 @@ public class Actor implements Comparable<Actor>{
 	
 	public Pelicula buscarPeli(String unaPelicula){
 		return this.listaP.get(unaPelicula);
+	}
+
+	public ArrayList<String> getPelis() {
+		// precondiciones: lista no vacia
+		// postcondiciones: devuelve un arraylist de los Values de un hashmap.
+		// Convertir valores HashMap a ArrayList
+		// coste lineal
+		ArrayList<String> listaPeliculas = new ArrayList<String>(this.listaP.keySet());
+		return listaPeliculas;
+
 	}
 	
 }
