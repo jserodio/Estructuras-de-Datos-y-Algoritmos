@@ -12,14 +12,34 @@ import labo1.*;
 public class GraphHash {
 
 	// grafo
-	HashMap<String, ArrayList<String>> g;
+	HashMap<String, ArrayList<String>> g = new HashMap<String, ArrayList<String>>();
 	
-	public void crearGrafo(HashMap<String, Actor> listaA){
+	public void crearGrafo(){
 		// Pre: la lista nunca está vacia
 		// Post: crea el grafo desde la lista de actores
 		//       Los nodos son nombres de actores y títulos de películas
+		CatalogoActores listaA = CatalogoActores.getCatalogoActores();
+		Iterator<Actor> itr = listaA.getListaActores().values().iterator();
+		while(itr.hasNext()){
+			Actor a1 = itr.next();
+			if(!g.containsKey(a1.getNombre())){
+				g.put(a1.getNombre(), a1.getNombrePelis());
+			}
+			ArrayList<Pelicula> l1 = a1.getPelis();
+			for(int j=0;j<l1.size();j++){
+				if(!g.containsKey(l1.get(j).getTitulo())){
+					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());
+				}
+			}
+			
+		}
 		
-		Iterator<Entry<String, Actor>> iterador = listaA.entrySet().iterator();
+		print();
+		
+		
+		
+		
+	/*	Iterator<Entry<String, Actor>> iterador = listaA.entrySet().iterator();
 		
 		while (iterador.hasNext()){ // n
 			// Por cada actor
@@ -39,7 +59,7 @@ public class GraphHash {
 			}
 			System.out.println(actor);
 		} // coste total del metodo completo: N ( n + N ( n )) = n(n+n^2) -> o(n^3)
-		
+		*/
 	}
 
 	public void print(){
@@ -58,5 +78,9 @@ public class GraphHash {
 		
 		return false;
 	}
+	
+	/*private Iterator<Entry<String,ArrayList<String>>> getIterador(){
+		return g.entrySet().iterator();
+	}*/
 	
 }

@@ -141,5 +141,19 @@ public class CatalogoActores {
 			}
 	}
 
-
+	public int cuantosHay(){
+		return listaA.size();
+	}
+	
+	/*public Actor devolverActorPos(int i){
+		Actor actor=null;
+		int contador = 0;
+		Iterator<Actor> it = listaA.values().iterator();
+		while(it.hasNext() && contador!=i+1){
+			actor = it.next();
+			contador++;
+		}
+		return actor;
+	}*/
+	
 }
