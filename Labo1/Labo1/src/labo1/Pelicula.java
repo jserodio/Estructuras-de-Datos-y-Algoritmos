@@ -24,7 +24,7 @@ public class Pelicula {
 	}*/
 	
 	public void anadirActor(Actor unActor) {
-		if(!this.listaA.containsKey(unActor)){
+		if(!this.listaA.containsKey(unActor.getNombre())){
 			this.listaA.put(unActor.getNombre(),unActor);
 		}
 		
@@ -36,6 +36,7 @@ public class Pelicula {
 	
 
 	public void obtenerActores(){
+		System.out.println(this.listaA.size());
 		//Esto es el metodo para mostrar todos los actores de la pelicula
 		Iterator<Actor> itr = listaA.values().iterator();
 		while (itr.hasNext()){
@@ -55,5 +56,7 @@ public class Pelicula {
 	public float getDonaciones(){
 		return this.donaciones;
 	}
+	
+	
 		
 }

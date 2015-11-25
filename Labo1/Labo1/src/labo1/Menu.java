@@ -129,25 +129,26 @@ public class Menu {
 				break;
 				
 			case 5: //Mostrar reparto de una pelicula
-				do {
-					System.out.println("Introduzca el nombre de la pelicula:");
-					pNombre = br.readLine();
+				CatalogoPelis.getCatalogoPelis().imprimirPeliculas();
+				//do {
+					//System.out.println("Introduzca el nombre de la pelicula:");
+					//pNombre = br.readLine();
 					//busca si esta la peli
-					if (CatalogoPelis.getCatalogoPelis().existePelicula(pNombre)){
+				//	if (CatalogoPelis.getCatalogoPelis().existePelicula(pNombre)){
 						//devuelve actores
-						CatalogoActores.getCatalogoActores().listaActorCadaPeli(pNombre);
-						decision=false;
-					}else{
+					//	CatalogoActores.getCatalogoActores().listaActorCadaPeli(pNombre);
+					//	decision=false;
+				//	}else{
 						//no esta la peli, no devuelve actores
-						System.out.println("La peli que buscas no esta, o es incorrecta.");
-						System.out.println("Desea volver a intentarlo? Si o No?");
-						if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
-							decision=true;
-						}else{
-							decision=false;
-						}
-					}	
-				}  while(decision);
+					//	System.out.println("La peli que buscas no esta, o es incorrecta.");
+					//	System.out.println("Desea volver a intentarlo? Si o No?");
+						//if (br.readLine().toUpperCase().equals("SI")){//recojo la decisión, si es verdad, repito el bucle
+					//		decision=true;
+					//	}else{
+					//		decision=false;
+					//	}
+				//	}	
+			//	}  while(decision);
 				break;
 				
 			case 6: //Obtener una lista de actores ordenada

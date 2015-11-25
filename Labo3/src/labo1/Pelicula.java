@@ -64,7 +64,5 @@ public class Pelicula {
 		// coste lineal
 		ArrayList<String> listaActores = new ArrayList<String>(this.listaA.keySet());
 		return listaActores;
-
-	}
-		
+		}
 }

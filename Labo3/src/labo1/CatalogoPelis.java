@@ -26,7 +26,7 @@ public class CatalogoPelis {
 		// Este metodo devuelve la lista de pelis
 		Actor actor = CatalogoActores.getCatalogoActores().buscarActor(unActor);
 			if (actor!= null){
-				ArrayList<String> pelis = actor.getPelis();
+				ArrayList<String> pelis = actor.getNombrePelis();
 				return pelis;
 			} else {
 				System.out.println("La pelicula introducida no existe");

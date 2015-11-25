@@ -10,39 +10,30 @@ import java.util.TreeSet;
 import labo1.*;
 
 public class GraphHash {
-
 	// grafo
-	HashMap<String, ArrayList<String>> g;
-	
-	public void crearGrafo(HashMap<String, Actor> listaA){
-		// Pre: la lista nunca está vacia
-		// Post: crea el grafo desde la lista de actores
-		//       Los nodos son nombres de actores y títulos de películas
-		
-		Iterator<Entry<String, Actor>> iterador = listaA.entrySet().iterator();
-		
-		while (iterador.hasNext()){ // n
-			// Por cada actor
-			Entry<String, Actor> actor = iterador.next();
-			// Comprobar si ya existe el nodo.
-			if (!g.containsKey(actor.getKey())) // Si no esta creado el nodo, lo crea.
-				g.put(actor.getKey(), CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey())); // n
-			
-			Iterator<String> it = CatalogoPelis.getCatalogoPelis().getListaPelis(actor.getKey()).iterator();
-			while (it.hasNext()){ // n
-				// Por cada peli
-				String peli = it.next();
-				if(!g.containsKey(peli)){
-					g.put(peli, CatalogoActores.getCatalogoActores().getArrayListaActores(peli));; // n
-				}
-					
-			}
-			System.out.println(actor);
-		} // coste total del metodo completo: N ( n + N ( n )) = n(n+n^2) -> o(n^3)
-		
-	}
+	HashMap<String, ArrayList<String>> g = new HashMap<String, ArrayList<String>>();
 
-	public void print(){
+	public void crearGrafo(){
+//       Los nodos son nombres de actores y títulos de películas
+		CatalogoActores listaA = CatalogoActores.getCatalogoActores(); //cogemos el catalogo de actores
+		Iterator<Actor> itr = listaA.getListaActores().values().iterator();//creamos el iterador para la lista de actores
+		while(itr.hasNext()){//recorremos la lista de actores
+			Actor a1 = itr.next();//un actor
+			if(!g.containsKey(a1.getNombre())){//si el hashmap que hemos creado no contiene al actor......
+				g.put(a1.getNombre(), a1.getNombrePelis());//...... lo introducimos.
+			}
+			ArrayList<Pelicula> l1 = a1.getPelis();//para cada actor, cogemos su lista de peliculas y las metemos en el array.
+			for(int j=0;j<l1.size();j++){//recorremos la lista que acabamos de crear
+				if(!g.containsKey(l1.get(j).getTitulo())){//si no esta la pelicula en  la lista.....
+					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());//.....la añadimos
+				}
+			}
+		print();
+		 
+		}
+	}
+		
+		public void print(){
 		int i = 1;
 		for (String s: g.keySet()){
 			System.out.print("Element: " + i++ + " " + s + " --> ");
@@ -52,11 +43,9 @@ public class GraphHash {
 			System.out.println();
 		}
 	}
-	
 	public boolean estanConectados(String a1, String a2){
-		
-		
+		// COMPLETAR CÓDIGO*/
 		return false;
 	}
-	
+            
 }

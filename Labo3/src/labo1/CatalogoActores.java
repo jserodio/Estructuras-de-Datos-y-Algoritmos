@@ -129,7 +129,6 @@ public class CatalogoActores {
 			e.printStackTrace();
 		}
 	}
-
 	public ArrayList<String> getArrayListaActores(String pPeli) {
 		//este metodo nos dira para una pelicula dada, la lista de actores que participan en ella
 		Pelicula pelicula = CatalogoPelis.getCatalogoPelis().buscarPeli(pPeli);
@@ -141,5 +140,7 @@ public class CatalogoActores {
 			}
 	}
 
-
+	public int cuantosHay(){
+		return listaA.size();
+	}
 }
