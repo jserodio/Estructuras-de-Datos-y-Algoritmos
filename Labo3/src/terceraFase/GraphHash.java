@@ -15,17 +15,17 @@ public class GraphHash {
 
 	public void crearGrafo(){
 //       Los nodos son nombres de actores y títulos de películas
-		CatalogoActores listaA = CatalogoActores.getCatalogoActores();
-		Iterator<Actor> itr = listaA.getListaActores().values().iterator();
-		while(itr.hasNext()){
-			Actor a1 = itr.next();
-			if(!g.containsKey(a1.getNombre())){
-				g.put(a1.getNombre(), a1.getNombrePelis());
+		CatalogoActores listaA = CatalogoActores.getCatalogoActores(); //cogemos el catalogo de actores
+		Iterator<Actor> itr = listaA.getListaActores().values().iterator();//creamos el iterador para la lista de actores
+		while(itr.hasNext()){//recorremos la lista de actores
+			Actor a1 = itr.next();//un actor
+			if(!g.containsKey(a1.getNombre())){//si el hashmap que hemos creado no contiene al actor......
+				g.put(a1.getNombre(), a1.getNombrePelis());//...... lo introducimos.
 			}
-			ArrayList<Pelicula> l1 = a1.getPelis();
-			for(int j=0;j<l1.size();j++){
-				if(!g.containsKey(l1.get(j).getTitulo())){
-					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());
+			ArrayList<Pelicula> l1 = a1.getPelis();//para cada actor, cogemos su lista de peliculas y las metemos en el array.
+			for(int j=0;j<l1.size();j++){//recorremos la lista que acabamos de crear
+				if(!g.containsKey(l1.get(j).getTitulo())){//si no esta la pelicula en  la lista.....
+					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());//.....la añadimos
 				}
 			}
 		print();
