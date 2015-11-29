@@ -15,6 +15,7 @@ public class casoPrueba {
 		GraphHash grafo = new GraphHash();
 
 		grafo.crearGrafo();
+		System.out.println(grafo.estanConectados("Lynn, Sonia", "Gates, Victoria"));
 	}
 
 }

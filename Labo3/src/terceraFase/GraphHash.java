@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.SortedSet;
+import java.util.Stack;
 import java.util.TreeSet;
 
 import labo1.*;
@@ -28,9 +29,9 @@ public class GraphHash {
 					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());
 				}
 			}
-		print();
 		 
 		}
+		print();
 	}
 		
 		public void print(){
@@ -45,7 +46,37 @@ public class GraphHash {
 	}
 	public boolean estanConectados(String a1, String a2){
 		// COMPLETAR CÓDIGO*/
+		
+		Stack<String> sinExaminar = new Stack<String>();
+		sinExaminar.push(a1);
+		boolean enc = false;
+		Boolean[] visitados = new Boolean[g.size()];
+		//System.out.println("-------------------------" + g.size() + "--------------");
+		int i = 0;
+		Iterator<String> it = g.keySet().iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+			visitados[i] = false;
+			i++;
+		}
+	//	int posa1 = buscar(a1);
+	//	visitados[posa1] = true;
+		/*while(!sinExaminar.isEmpty() && !enc){
+		
+		}*/
 		return false;
+	}
+	
+	public int buscar(String a1){
+		int i=0;
+		boolean enc = false;
+		Iterator<Entry<String, ArrayList<String>>> it = g.entrySet().iterator();
+		while(it.hasNext() && !enc){
+			if(g.entrySet().iterator().next().getKey().equals(a1)){
+				enc = true;
+			} else i++;
+		}
+		return i;
 	}
             
 }
