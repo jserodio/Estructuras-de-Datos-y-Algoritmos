@@ -51,19 +51,19 @@ public class GraphHash {
 	}
 
             
-	public CatalogoActores obtenerColegas(Actor unActor){
-		
-		TreeSet<Actor> tree = new TreeSet<Actor>();
-		for (int a = 0; a < CatalogoActores.getCatalogoActores().getListaActores().size(); a++) {   //recorre todos los actores
-			Actor act = CatalogoActores.getCatalogoActores().getListaActores().get(act); // esta mal creo
-			for (int p = 0; p < act.getListaPelis().size(); p++) {   //recorre las pelis de actor actual
-				Pelicula peli = act.getListaPelis().get(peli);//esta mal creo
-				for (int ap = 0; ap < peli.getActores().size(); ap++) {    // recorre los actores de la peli del actor actual
-					Actor comparar=peli.getLista().EstaEnPos(ap); //no se que poner para que funcione con el hashmap
-					if(!this.equals(comparar) && !tree.contains(act) && !this.equals(act) && peli.getActores().contains() { //no se que meter aqui
-							this.getListaColegas().insercionActriz(act);   //si esta le metemos en listaColegas
-							tree.add(act);
-		return null;
-	}
+//	public CatalogoActores obtenerColegas(Actor unActor){
+//		
+//		TreeSet<Actor> tree = new TreeSet<Actor>();
+//		for (int a = 0; a < CatalogoActores.getCatalogoActores().getListaActores().size(); a++) {   //recorre todos los actores
+//			Actor act = CatalogoActores.getCatalogoActores().getListaActores().get(unActor); // esta mal creo
+//			for (int p = 0; p < act.getListaPelis().size(); p++) {   //recorre las pelis de actor actual
+//				Pelicula peli = act.getListaPelis().get(peli);//esta mal creo
+//				for (int ap = 0; ap < peli.getActores().size(); ap++) {    // recorre los actores de la peli del actor actual
+//					Actor comparar=peli.getLista().EstaEnPos(ap); //no se que poner para que funcione con el hashmap
+//					if(!this.equals(comparar) && !tree.contains(act) && !this.equals(act) && peli.getActores().contains() { //no se que meter aqui
+//							this.getListaColegas().insercionActriz(act);   //si esta le metemos en listaColegas
+//							tree.add(act);
+//		return null;
+//	}
 }
 			
