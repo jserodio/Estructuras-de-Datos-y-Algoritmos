@@ -2,6 +2,7 @@ package terceraFase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.SortedSet;
@@ -49,22 +50,16 @@ public class GraphHash {
 		// COMPLETAR CÓDIGO*/
 		
 		Stack<String> sinExaminar = new Stack<String>();
+		HashSet<String> visitados = new HashSet<String>();
 		sinExaminar.push(a1);
 		boolean enc = false;
-		Boolean[] visitados = new Boolean[g.size()];
-		//System.out.println("-------------------------" + g.size() + "--------------");
-		int i = 0;
 		Iterator<String> it = g.keySet().iterator();
-		while(it.hasNext()){
-			System.out.println(it.next());
-			visitados[i] = false;
-			i++;
+		while(!sinExaminar.isEmpty() && !enc){
+			for(int i=0; i<g.size();i++){
+				HashMap<String,Pelicula> Lpa1 = CatalogoActores.getCatalogoActores().buscarActor(a1).getListaPelis();
+				
+			}
 		}
-	//	int posa1 = buscar(a1);
-	//	visitados[posa1] = true;
-		/*while(!sinExaminar.isEmpty() && !enc){
-		
-		}*/
 		return false;
 	}
 }
