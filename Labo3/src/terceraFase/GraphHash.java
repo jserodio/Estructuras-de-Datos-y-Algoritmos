@@ -33,7 +33,6 @@ public class GraphHash {
 				}	
 			}
 		}
-		print();
 	}
 		
 		public void print(){
@@ -48,33 +47,30 @@ public class GraphHash {
 	}
 
 		public boolean estanConectados(String a1, String a2){
-			// COMPLETAR CÓDIGO*/
+			Stack<String> sinExaminar = new Stack<String>(); //hacemos la pila con la que vamos a trabajar
+			HashSet<String> visitados = new HashSet<String>(); //creamos un HashSet en el cual estaran los actores ya visitados
+			sinExaminar.push(a1); // hacemos push a la pila y ponemos el actor en lo alto de esta
+			boolean enc = false; // creamos un booleano para cuando encontremos el actor no siga dando vueltas de mas
 			
-			Stack<String> sinExaminar = new Stack<String>();
-			HashSet<String> visitados = new HashSet<String>();
-			sinExaminar.push(a1);
-			boolean enc = false;
-			
-			while(!sinExaminar.isEmpty() && !enc){
-				String act= sinExaminar.pop();
-				if(act.equals(a2)){
-					enc=true;
+			while(!sinExaminar.isEmpty() && !enc){ // entramos en el bucle
+				String act= sinExaminar.pop(); // sacamos el primer elemento de la pila y lo borramos
+				if(act.equals(a2)){ //verificamos a ver si el elemento de lo alto de la pila es el que estamos buscando
+					enc=true; // si es asi, enc = true y acabamos;
 				}
-				ArrayList<String> lPa1= g.get(act);
-				for(int i = 0; i<lPa1.size();i++){
-					ArrayList<String> lAp1 = g.get(lPa1.get(i));
-					for(int j = 0 ; j<lAp1.size();j++){
-						String actor = lAp1.get(j);
-						if (!visitados.contains(actor)){
-							sinExaminar.push(actor);
-							visitados.add(actor);
+				ArrayList<String> lPa1= g.get(act); // cogemos los values del actor del HashMap que hemos hecho antes a la hora de hacer crearGrafo
+				for(int i = 0; i<lPa1.size();i++){ // recorremos las peliculas una por una
+					ArrayList<String> lAp1 = g.get(lPa1.get(i)); // cogemos los values de la pelicula del HashMap que hemos hecho antes con lo del grafo
+					for(int j = 0 ; j<lAp1.size();j++){ // recorremos los actores uno por uno
+						String actor = lAp1.get(j); // recogemos el actor en una variable
+						if (!visitados.contains(actor)){ // verificamos si esta en la lista de visitados y en caso de no estar hacemos 
+							sinExaminar.push(actor); // Lo ponemos en el top de la pila
+							visitados.add(actor); //Lo añadimos a visitados
 						}
 					}
 				}
 				
 			
 			}
-			System.out.println(enc);
 			return enc;
 		}
 }

@@ -13,6 +13,8 @@ public class Menu {
 	static boolean decision; //true será que si, false que no.
 	static Actor unActor = null;
 	static String pNombre;
+	static String pActor1;
+	static String pActor2;
 	static int num;
 	static Pelicula pPeli;
 	static float donaciones;
@@ -37,8 +39,8 @@ public class Menu {
 		System.out.println("> Opcion 6- Obtener una lista de actores ordenada");
 		System.out.println("> Opcion 7- Hacer una donacion a una pelicula");
 		System.out.println("> Opcion 8- Guardar datos de peliculas a un archivo");
-		System.out.println("> Opcion 9- Salir del menu");
-		System.out.println("> Opcion 10- Metodo nuevo");
+		System.out.println("> Opcion 9- Mirar si dos actores estan conectados");
+		System.out.println("> Opcion 10- Salir del menu");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String Linea = br.readLine();
 		num = Integer.parseInt(Linea);
@@ -187,7 +189,22 @@ public class Menu {
 				System.out.println("Se ha guardado el nuevo catalogo en un txt.");
 				break;
 				
-			case 9: //Salir del menu
+			case 9: //Mirar si 2 actores estan conectados
+				GraphHash grafo = new GraphHash();
+				System.out.println("Introduzca el nombre del primer actor:");
+				pActor1 = br.readLine();
+				System.out.println("Introduzca el nombre del segundo actor:");
+				pActor2 = br.readLine();
+				grafo.crearGrafo();
+				System.out.println("Buscando relacion alguna:\n");
+				boolean relacion = grafo.estanConectados(pActor1, pActor2);
+				if(relacion){
+					System.out.println("Existe relacion alguna entre " + pActor1 + " y " + pActor2);
+				} else	System.out.println("No existe relacion alguna entre " + pActor1 + " y " + pActor2);
+				
+				break;
+				
+			case 10: //Salir del menu
 				System.out.println("Saliendo del programa... adios! :)");
 				System.exit(num);
 				break;
@@ -198,7 +215,7 @@ public class Menu {
 				break;
 			}
 			//Fin del switch case
-		}while (num != 9);
+		}while (num != 10);
 	}
 	//Fin del main
 }
