@@ -106,7 +106,7 @@ public class CatalogoActores {
 		//		"Catalogo de Actores dada una Pelicula"
 		//		"Catologo de Peliculas dado un Actor"
 		try {
-			Scanner entrada = new Scanner(new FileReader("src/archivo/10-actors.txt"));
+			Scanner entrada = new Scanner(new FileReader("src/archivo/Prueba500"));
 			String linea;
 			while (entrada.hasNext()) {
 				linea = entrada.nextLine();

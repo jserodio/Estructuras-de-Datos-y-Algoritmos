@@ -15,7 +15,11 @@ public class casoPrueba {
 		GraphHash grafo = new GraphHash();
 
 		grafo.crearGrafo();
+<<<<<<< HEAD
 		System.out.println(grafo.estanConectados("Lynn, Sonia", "Gates, Victoria"));
+=======
+		grafo.estanConectados("Neff, Warren", "McKechnie, Lee");
+>>>>>>> branch 'master' of https://github.com/jserodio/Estructuras-de-Datos-y-Algoritmos.git
 	}
 
 }

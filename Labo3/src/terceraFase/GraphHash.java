@@ -30,8 +30,8 @@ public class GraphHash {
 			for(int j=0;j<l1.size();j++){//recorremos la lista que acabamos de crear
 				if(!g.containsKey(l1.get(j).getTitulo())){//si no esta la pelicula en  la lista.....
 					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());//.....la añadimos
-				}
-			}	
+				}	
+			}
 		}
 		print();
 	}
@@ -46,21 +46,35 @@ public class GraphHash {
 			System.out.println();
 		}
 	}
-	public boolean estanConectados(String a1, String a2){
-		// COMPLETAR CÓDIGO*/
-		
-		Stack<String> sinExaminar = new Stack<String>();
-		HashSet<String> visitados = new HashSet<String>();
-		sinExaminar.push(a1);
-		boolean enc = false;
-		Iterator<String> it = g.keySet().iterator();
-		while(!sinExaminar.isEmpty() && !enc){
-			for(int i=0; i<g.size();i++){
-				HashMap<String,Pelicula> Lpa1 = CatalogoActores.getCatalogoActores().buscarActor(a1).getListaPelis();
-				
-			}
-		}
-		return false;
-	}
-}
+
+		public boolean estanConectados(String a1, String a2){
+			// COMPLETAR CÓDIGO*/
 			
+			Stack<String> sinExaminar = new Stack<String>();
+			HashSet<String> visitados = new HashSet<String>();
+			sinExaminar.push(a1);
+			boolean enc = false;
+			
+			while(!sinExaminar.isEmpty() && !enc){
+				String act= sinExaminar.pop();
+				if(act.equals(a2)){
+					enc=true;
+				}
+				ArrayList<String> lPa1= g.get(act);
+				for(int i = 0; i<lPa1.size();i++){
+					ArrayList<String> lAp1 = g.get(lPa1.get(i));
+					for(int j = 0 ; j<lAp1.size();j++){
+						String actor = lAp1.get(j);
+						if (!visitados.contains(actor)){
+							sinExaminar.push(actor);
+							visitados.add(actor);
+						}
+					}
+				}
+				
+			
+			}
+			System.out.println(enc);
+			return enc;
+		}
+}
