@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.SortedSet;
+import java.util.Stack;
 import java.util.TreeSet;
 
 import labo1.*;
@@ -28,9 +29,10 @@ public class GraphHash {
 					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());//.....la añadimos
 				}
 			}
-		print();
+		
 		 
 		}
+		print();
 	}
 		
 		public void print(){
@@ -43,8 +45,17 @@ public class GraphHash {
 			System.out.println();
 		}
 	}
+	
 	public boolean estanConectados(String a1, String a2){
 		// COMPLETAR CÓDIGO*/
+		
+		Stack<String> sinExaminar = new Stack<String>();
+	//	HashSet<String> visitados = new HashSet<String>();
+		sinExaminar.push(a1);
+		boolean enc = false;
+		while(!sinExaminar.isEmpty() && !enc){
+		
+		}
 		return false;
 	}
             
