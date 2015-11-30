@@ -2,6 +2,7 @@ package terceraFase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.SortedSet;
@@ -9,6 +10,8 @@ import java.util.Stack;
 import java.util.TreeSet;
 
 import labo1.*;
+
+
 
 public class GraphHash {
 	// grafo
@@ -29,8 +32,6 @@ public class GraphHash {
 					g.put(l1.get(j).getTitulo(),l1.get(j).getActores());//.....la añadimos
 				}
 			}
-		
-		 
 		}
 		print();
 	}
@@ -46,17 +47,36 @@ public class GraphHash {
 		}
 	}
 	
-	public boolean estanConectados(String a1, String a2){
-		// COMPLETAR CÓDIGO*/
-		
-		Stack<String> sinExaminar = new Stack<String>();
-	//	HashSet<String> visitados = new HashSet<String>();
-		sinExaminar.push(a1);
-		boolean enc = false;
-		while(!sinExaminar.isEmpty() && !enc){
-		
+		public boolean estanConectados(String a1, String a2){
+			// COMPLETAR CÓDIGO*/
+			
+			Stack<String> sinExaminar = new Stack<String>();
+			HashSet<String> visitados = new HashSet<String>();
+			sinExaminar.push(a1);
+			boolean enc = false;
+			
+			while(!sinExaminar.isEmpty() && !enc){
+				String act= sinExaminar.pop();
+				if(act.equals(a2)){
+					enc=true;
+				}
+				ArrayList<String> lPa1= g.get(act);
+				for(int i = 0; i<lPa1.size();i++){
+					ArrayList<String> lAp1 = g.get(lPa1.get(i));
+					for(int j = 0 ; j<lAp1.size();j++){
+						String actor = lAp1.get(j);
+						if (!visitados.contains(actor)){
+							sinExaminar.push(actor);
+							visitados.add(actor);
+						}
+					}
+				}
+				
+			
+			}
+			System.out.println(enc);
+			return enc;
 		}
-		return false;
 	}
-            
-}
+
+			

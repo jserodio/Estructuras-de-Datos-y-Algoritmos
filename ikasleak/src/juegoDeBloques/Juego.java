@@ -40,26 +40,28 @@ public class Juego {
 	 */		
 		final int GAMEOVER = -1;
 		final int WIN = 0;
-
+		Bloque actual;
 		int status = 1;
 		int puntuacion = 0; // 0 pts ¯\(°_o)/¯
 		
-		int cont=NUMCOLUMNAS/2; // Contador para el bucle while.
+		int cont= NUMCOLUMNAS/2; // Contador para el bucle while.
 		
 		while(status != GAMEOVER && status != WIN){
 			// Recorre el bucle si no ha ganado ni ha perdido.
+			actual = null;
 			
-			if(tablero[cont].isEmpty()){
+			if(cont>=NUMCOLUMNAS || cont<0){
 				// TODO: arreglar el ArrayIndexOutOfBoundsException.
 				// Si la pila actual es vacia (ha saltado fuera), entonces pierde la partida.
 				status = GAMEOVER;
 			}
 			else{
-				Bloque actual = tablero[cont].peek();
-				if (actual==null){
+				if (tablero[cont].isEmpty()){
 					// Accede al bloque de la cima de la pila. Si es null ha ganado la partida.
 				 	status = WIN;
 				 }else{
+					 actual = tablero[cont].peek(); // Accedemos al primer elemento de la pila
+					 tablero[cont].pop(); // Eliminamos el primer elemento de la pila
 					 puntuacion += actual.puntos;
 					 if (actual.direccion == Direccion.IZQUIERDA){
 						 // Salta a la pila de la izquierda, n veces. (salto = n)

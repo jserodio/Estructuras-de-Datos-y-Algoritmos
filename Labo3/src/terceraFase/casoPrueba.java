@@ -15,6 +15,7 @@ public class casoPrueba {
 		GraphHash grafo = new GraphHash();
 
 		grafo.crearGrafo();
+		grafo.estanConectados("Neff, Warren", "McKechnie, Lee");
 	}
 
 }
